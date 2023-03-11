@@ -2,8 +2,9 @@ from logic.data.database import Database
 
 
 class DatabaseHelper:
-    def __init__(self, database: Database):
-        self.database = database
+    # TODO: getting by foreign keys is not working, fix it
+    def __init__(self, db_url: str = "sqlite:///database.db"):
+        self.database = Database(db_url)
 
     # * GET
     def get_all_users(self) -> list:
@@ -98,6 +99,9 @@ class DatabaseHelper:
 
     def delete_case(self, case_id: int) -> None:
         self.database.delete("cases", case_id)
+
+    def delete_case_type(self, case_type_id: int) -> None:
+        self.database.delete("case_types", case_type_id)
 
     def delete_invoice(self, invoice_id: int) -> None:
         self.database.delete("invoices", invoice_id)
