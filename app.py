@@ -1,17 +1,17 @@
 from PySide6.QtWidgets import QApplication, QMainWindow
-from PySide6.QtUiTools import QUiLoader
-from PySide6.QtCore import QFile
+from Custom_Widgets.Widgets import loadJsonStyle
+
+from typing import Optional
+
+from src.interface.views.mainWindow import Ui_MainWindow as View
 
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super(MainWindow, self).__init__()
-        loader = QUiLoader()
-        path = QFile("layout.ui")
-        path.open(QFile.ReadOnly)
-        self.ui = loader.load(path, self)
-        path.close()
-        self.ui.show()
+class MainWindow(QMainWindow, View):
+    def __init__(self, parent: Optional[QMainWindow] = None) -> None:
+        super().__init__(parent)
+        self.setupUi(self)
+        loadJsonStyle(self, self)
+        self.show()
 
 
 if __name__ == "__main__":
