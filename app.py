@@ -10,7 +10,7 @@ class MainWindow(QMainWindow, View):
     def __init__(self, parent: Optional[QMainWindow] = None) -> None:
         super().__init__(parent)
         self.setupUi(self)
-        loadJsonStyle(self, self)
+        loadJsonStyle(self, self, jsonFiles=[":/style/style.json"])
         self.show()
 
 

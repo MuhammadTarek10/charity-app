@@ -8,4 +8,7 @@
     <file>icons/money.png</file>
     <file>icons/menu.png</file>
   </qresource>
+  <qresource prefix="style">
+    <file>style.json</file>
+  </qresource>
 </RCC>
