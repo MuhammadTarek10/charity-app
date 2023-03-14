@@ -69,10 +69,15 @@ class Ui_MainWindow(object):
             "	border: none;\n"
             "	background-color: #FFFFFF;\n"
             "	color: #000000;\n"
+            "	font-size: 20px;\n"
             "}\n"
             "\n"
             "QLabel{\n"
             "	color: #000000;\n"
+            "}\n"
+            "\n"
+            "#titleLabel{\n"
+            "	font-size: 30px;\n"
             "}\n"
             "\n"
             "QPushButton{\n"
@@ -97,7 +102,7 @@ class Ui_MainWindow(object):
             "}\n"
             "#mainBodyGroupBox{\n"
             "	margin-right: 10px;\n"
-            "	border-radius: 14px;\n"
+            "	border-radius: 5px;\n"
             "	border: 1px solid;\n"
             "}"
         )
@@ -121,7 +126,9 @@ class Ui_MainWindow(object):
         self.titleFrame.setFrameShape(QFrame.StyledPanel)
         self.titleFrame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.titleFrame)
+        self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.titleLabel = QLabel(self.titleFrame)
         self.titleLabel.setObjectName("titleLabel")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
@@ -130,8 +137,6 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.titleLabel.sizePolicy().hasHeightForWidth())
         self.titleLabel.setSizePolicy(sizePolicy)
         font = QFont()
-        font.setPointSize(25)
-        font.setBold(True)
         self.titleLabel.setFont(font)
         self.titleLabel.setAlignment(Qt.AlignCenter)
 
@@ -154,11 +159,8 @@ class Ui_MainWindow(object):
         self.menuButton.setSizePolicy(sizePolicy1)
         self.menuButton.setMinimumSize(QSize(100, 0))
         self.menuButton.setMaximumSize(QSize(100, 16777215))
-        font1 = QFont()
-        font1.setFamilies(["Arial"])
-        font1.setPointSize(20)
-        self.menuButton.setFont(font1)
-        self.menuButton.setCursor(QCursor(Qt.OpenHandCursor))
+        self.menuButton.setFont(font)
+        self.menuButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.menuButton.setLayoutDirection(Qt.LeftToRight)
         icon = QIcon()
         icon.addFile(":/icons/icons/menu.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -211,57 +213,74 @@ class Ui_MainWindow(object):
         )
         self.sideMenuFrame.setSizePolicy(sizePolicy2)
         self.sideMenuFrame.setMinimumSize(QSize(0, 0))
-        font2 = QFont()
-        font2.setFamilies(["Arial"])
-        font2.setPointSize(18)
-        self.sideMenuFrame.setFont(font2)
+        self.sideMenuFrame.setFont(font)
+        self.sideMenuFrame.setCursor(QCursor(Qt.ArrowCursor))
         self.sideMenuFrame.setFrameShape(QFrame.StyledPanel)
         self.sideMenuFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.sideMenuFrame)
         self.verticalLayout_2.setSpacing(15)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(10, 10, 10, 10)
-        self.casesButton = QPushButton(self.sideMenuFrame)
-        self.casesButton.setObjectName("casesButton")
-        self.casesButton.setMaximumSize(QSize(16777215, 16777215))
-        self.casesButton.setFont(font2)
-        self.casesButton.setCursor(QCursor(Qt.OpenHandCursor))
-        self.casesButton.setLocale(QLocale(QLocale.Arabic, QLocale.Egypt))
-        icon1 = QIcon()
-        icon1.addFile(":/icons/icons/case.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.casesButton.setIcon(icon1)
-
-        self.verticalLayout_2.addWidget(self.casesButton)
-
-        self.donationsButton = QPushButton(self.sideMenuFrame)
+        self.mainOptionsFrame = QFrame(self.sideMenuFrame)
+        self.mainOptionsFrame.setObjectName("mainOptionsFrame")
+        sizePolicy3.setHeightForWidth(
+            self.mainOptionsFrame.sizePolicy().hasHeightForWidth()
+        )
+        self.mainOptionsFrame.setSizePolicy(sizePolicy3)
+        self.mainOptionsFrame.setMinimumSize(QSize(0, 0))
+        self.mainOptionsFrame.setFrameShape(QFrame.StyledPanel)
+        self.mainOptionsFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.mainOptionsFrame)
+        self.verticalLayout_5.setSpacing(20)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(10, 10, 10, 10)
+        self.donationsButton = QPushButton(self.mainOptionsFrame)
         self.donationsButton.setObjectName("donationsButton")
-        self.donationsButton.setFont(font2)
-        self.donationsButton.setCursor(QCursor(Qt.OpenHandCursor))
-        icon2 = QIcon()
-        icon2.addFile(":/icons/icons/donation.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.donationsButton.setIcon(icon2)
+        self.donationsButton.setMinimumSize(QSize(0, 0))
+        self.donationsButton.setFont(font)
+        self.donationsButton.setCursor(QCursor(Qt.PointingHandCursor))
+        icon1 = QIcon()
+        icon1.addFile(":/icons/icons/donation.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.donationsButton.setIcon(icon1)
 
-        self.verticalLayout_2.addWidget(self.donationsButton)
+        self.verticalLayout_5.addWidget(self.donationsButton)
 
-        self.invoicesButton = QPushButton(self.sideMenuFrame)
+        self.invoicesButton = QPushButton(self.mainOptionsFrame)
         self.invoicesButton.setObjectName("invoicesButton")
-        self.invoicesButton.setFont(font2)
-        self.invoicesButton.setCursor(QCursor(Qt.OpenHandCursor))
+        self.invoicesButton.setMinimumSize(QSize(0, 0))
+        self.invoicesButton.setFont(font)
+        self.invoicesButton.setCursor(QCursor(Qt.PointingHandCursor))
+        icon2 = QIcon()
+        icon2.addFile(":/icons/icons/money.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.invoicesButton.setIcon(icon2)
+
+        self.verticalLayout_5.addWidget(self.invoicesButton)
+
+        self.casesButton = QPushButton(self.mainOptionsFrame)
+        self.casesButton.setObjectName("casesButton")
+        self.casesButton.setMinimumSize(QSize(0, 0))
+        self.casesButton.setMaximumSize(QSize(16777215, 16777215))
+        self.casesButton.setFont(font)
+        self.casesButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.casesButton.setLocale(QLocale(QLocale.Arabic, QLocale.Egypt))
         icon3 = QIcon()
-        icon3.addFile(":/icons/icons/money.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.invoicesButton.setIcon(icon3)
+        icon3.addFile(":/icons/icons/case.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.casesButton.setIcon(icon3)
 
-        self.verticalLayout_2.addWidget(self.invoicesButton)
+        self.verticalLayout_5.addWidget(self.casesButton)
 
-        self.casesTypesButton = QPushButton(self.sideMenuFrame)
+        self.casesTypesButton = QPushButton(self.mainOptionsFrame)
         self.casesTypesButton.setObjectName("casesTypesButton")
-        self.casesTypesButton.setFont(font2)
-        self.casesTypesButton.setCursor(QCursor(Qt.OpenHandCursor))
+        self.casesTypesButton.setMinimumSize(QSize(0, 0))
+        self.casesTypesButton.setFont(font)
+        self.casesTypesButton.setCursor(QCursor(Qt.PointingHandCursor))
         icon4 = QIcon()
         icon4.addFile(":/icons/icons/types.png", QSize(), QIcon.Normal, QIcon.Off)
         self.casesTypesButton.setIcon(icon4)
 
-        self.verticalLayout_2.addWidget(self.casesTypesButton)
+        self.verticalLayout_5.addWidget(self.casesTypesButton)
+
+        self.verticalLayout_2.addWidget(self.mainOptionsFrame, 0, Qt.AlignRight)
 
         self.verticalSpacer = QSpacerItem(
             20, 2000, QSizePolicy.Minimum, QSizePolicy.Expanding
@@ -279,21 +298,32 @@ class Ui_MainWindow(object):
         self.settingsFrame.setFrameShape(QFrame.StyledPanel)
         self.settingsFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.settingsFrame)
-        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setSpacing(20)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(10, 0, 0, 0)
+        self.verticalLayout_4.setContentsMargins(10, 10, 10, 10)
         self.settingsButton = QPushButton(self.settingsFrame)
         self.settingsButton.setObjectName("settingsButton")
         self.settingsButton.setEnabled(True)
-        self.settingsButton.setFont(font2)
-        self.settingsButton.setCursor(QCursor(Qt.OpenHandCursor))
+        self.settingsButton.setMinimumSize(QSize(0, 0))
+        self.settingsButton.setFont(font)
+        self.settingsButton.setCursor(QCursor(Qt.PointingHandCursor))
         icon5 = QIcon()
         icon5.addFile(":/icons/icons/settings.png", QSize(), QIcon.Normal, QIcon.Off)
         self.settingsButton.setIcon(icon5)
 
         self.verticalLayout_4.addWidget(self.settingsButton)
 
-        self.verticalLayout_2.addWidget(self.settingsFrame, 0, Qt.AlignBottom)
+        self.aboutButton = QPushButton(self.settingsFrame)
+        self.aboutButton.setObjectName("aboutButton")
+        self.aboutButton.setMinimumSize(QSize(0, 0))
+        self.aboutButton.setFont(font)
+        icon6 = QIcon()
+        icon6.addFile(":/icons/icons/about.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.aboutButton.setIcon(icon6)
+
+        self.verticalLayout_4.addWidget(self.aboutButton)
+
+        self.verticalLayout_2.addWidget(self.settingsFrame)
 
         self.horizontalLayout_2.addWidget(self.sideMenuFrame, 0, Qt.AlignVCenter)
 
@@ -323,11 +353,6 @@ class Ui_MainWindow(object):
                 "MainWindow", "\u0627\u0644\u0642\u0627\u0626\u0645\u0629", None
             )
         )
-        self.casesButton.setText(
-            QCoreApplication.translate(
-                "MainWindow", "\u0627\u0644\u062d\u0627\u0644\u0627\u062a", None
-            )
-        )
         self.donationsButton.setText(
             QCoreApplication.translate(
                 "MainWindow", "\u0627\u0644\u062a\u0628\u0631\u0639\u0627\u062a", None
@@ -336,6 +361,11 @@ class Ui_MainWindow(object):
         self.invoicesButton.setText(
             QCoreApplication.translate(
                 "MainWindow", "\u0627\u0644\u0645\u0646\u0635\u0631\u0641", None
+            )
+        )
+        self.casesButton.setText(
+            QCoreApplication.translate(
+                "MainWindow", "\u0627\u0644\u062d\u0627\u0644\u0627\u062a", None
             )
         )
         self.casesTypesButton.setText(
@@ -349,6 +379,13 @@ class Ui_MainWindow(object):
             QCoreApplication.translate(
                 "MainWindow",
                 "\u0627\u0644\u0627\u0639\u062f\u0627\u062f\u0627\u062a",
+                None,
+            )
+        )
+        self.aboutButton.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                "\u0639\u0646 \u0627\u0644\u0628\u0631\u0646\u0627\u0645\u062c",
                 None,
             )
         )

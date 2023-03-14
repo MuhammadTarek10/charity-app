@@ -118,7 +118,8 @@ class Ui_Form(QWidget):
             "	border: 4px solid;\n"
             "}\n"
             "QPushButton:hover{\n"
-            "	background-color: #62CDFF;\n"
+            "	background-color: #62CDFF"
+            ";\n"
             "}"
         )
         Form.setLocale(QLocale(QLocale.Arabic, QLocale.Egypt))
@@ -232,9 +233,6 @@ class Ui_Form(QWidget):
         self.totalPriceEdit.setMinimumSize(QSize(0, 40))
         self.totalPriceEdit.setMaximumSize(QSize(16777215, 10))
         font = QFont()
-        font.setFamilies(["Arial"])
-        font.setPointSize(20)
-        font.setBold(True)
         self.totalPriceEdit.setFont(font)
         self.totalPriceEdit.setAlignment(Qt.AlignCenter)
 
@@ -265,10 +263,7 @@ class Ui_Form(QWidget):
         self.timeNowButton.setSizePolicy(sizePolicy)
         self.timeNowButton.setMinimumSize(QSize(70, 40))
         self.timeNowButton.setMaximumSize(QSize(70, 40))
-        font1 = QFont()
-        font1.setFamilies(["Arial"])
-        font1.setPointSize(13)
-        self.timeNowButton.setFont(font1)
+        self.timeNowButton.setFont(font)
         self.timeNowButton.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.horizontalLayout_3.addWidget(self.timeNowButton)
@@ -297,58 +292,55 @@ class Ui_Form(QWidget):
         self.verticalLayout.setContentsMargins(5, 0, 5, 0)
         self.nameLabel = QLabel(self.labelsFrame)
         self.nameLabel.setObjectName("nameLabel")
-        font2 = QFont()
-        font2.setFamilies(["Arial"])
-        font2.setPointSize(18)
-        self.nameLabel.setFont(font2)
+        self.nameLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.nameLabel)
 
         self.typeLabel = QLabel(self.labelsFrame)
         self.typeLabel.setObjectName("typeLabel")
-        self.typeLabel.setFont(font2)
+        self.typeLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.typeLabel)
 
         self.valueLabel = QLabel(self.labelsFrame)
         self.valueLabel.setObjectName("valueLabel")
-        self.valueLabel.setFont(font2)
+        self.valueLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.valueLabel)
 
         self.donationTypeLabel = QLabel(self.labelsFrame)
         self.donationTypeLabel.setObjectName("donationTypeLabel")
-        self.donationTypeLabel.setFont(font2)
+        self.donationTypeLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.donationTypeLabel)
 
         self.unitLabel = QLabel(self.labelsFrame)
         self.unitLabel.setObjectName("unitLabel")
-        self.unitLabel.setFont(font2)
+        self.unitLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.unitLabel)
 
         self.quantityLabel = QLabel(self.labelsFrame)
         self.quantityLabel.setObjectName("quantityLabel")
-        self.quantityLabel.setFont(font2)
+        self.quantityLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.quantityLabel)
 
         self.priceLabel = QLabel(self.labelsFrame)
         self.priceLabel.setObjectName("priceLabel")
-        self.priceLabel.setFont(font2)
+        self.priceLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.priceLabel)
 
         self.totalPriceLabel = QLabel(self.labelsFrame)
         self.totalPriceLabel.setObjectName("totalPriceLabel")
-        self.totalPriceLabel.setFont(font2)
+        self.totalPriceLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.totalPriceLabel)
 
         self.dateLabel = QLabel(self.labelsFrame)
         self.dateLabel.setObjectName("dateLabel")
-        self.dateLabel.setFont(font2)
+        self.dateLabel.setFont(font)
 
         self.verticalLayout.addWidget(self.dateLabel)
 

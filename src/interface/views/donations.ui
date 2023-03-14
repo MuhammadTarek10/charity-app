@@ -24,6 +24,7 @@
 	border: none;
 	background-color: #FFFFFF;
 	color: #000000;
+	font-size: 20px;
 }
 
 #labelsFrame{
@@ -347,10 +348,7 @@ QPushButton:hover{
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
-                <pointsize>20</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
+                <pointsize>-1</pointsize>
                </font>
               </property>
               <property name="text">
@@ -425,8 +423,7 @@ QPushButton:hover{
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
-                <pointsize>13</pointsize>
+                <pointsize>-1</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -496,8 +493,7 @@ QPushButton:hover{
           <widget class="QLabel" name="nameLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
@@ -509,8 +505,7 @@ QPushButton:hover{
           <widget class="QLabel" name="typeLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
@@ -522,8 +517,7 @@ QPushButton:hover{
           <widget class="QLabel" name="valueLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
@@ -535,8 +529,7 @@ QPushButton:hover{
           <widget class="QLabel" name="donationTypeLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
@@ -548,8 +541,7 @@ QPushButton:hover{
           <widget class="QLabel" name="unitLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
@@ -561,8 +553,7 @@ QPushButton:hover{
           <widget class="QLabel" name="quantityLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
@@ -574,8 +565,7 @@ QPushButton:hover{
           <widget class="QLabel" name="priceLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
@@ -587,8 +577,7 @@ QPushButton:hover{
           <widget class="QLabel" name="totalPriceLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
@@ -600,8 +589,7 @@ QPushButton:hover{
           <widget class="QLabel" name="dateLabel">
            <property name="font">
             <font>
-             <family>Arial</family>
-             <pointsize>18</pointsize>
+             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
