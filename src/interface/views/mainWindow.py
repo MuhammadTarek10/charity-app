@@ -43,6 +43,7 @@ from PySide6.QtGui import (
 from PySide6.QtWidgets import (
     QApplication,
     QFrame,
+    QGroupBox,
     QHBoxLayout,
     QLabel,
     QMainWindow,
@@ -61,7 +62,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(860, 560)
+        MainWindow.resize(860, 700)
+        MainWindow.setMinimumSize(QSize(860, 700))
         MainWindow.setStyleSheet(
             "*{\n"
             "	border: none;\n"
@@ -93,10 +95,10 @@ class Ui_MainWindow(object):
             "	border: 1px solid;\n"
             "	border-radius: 5px;\n"
             "}\n"
-            "#mainBodyFrame{\n"
-            "	background-color: #000000;\n"
+            "#mainBodyGroupBox{\n"
             "	margin-right: 10px;\n"
             "	border-radius: 14px;\n"
+            "	border: 1px solid;\n"
             "}"
         )
         self.centralwidget = QWidget(MainWindow)
@@ -184,19 +186,23 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.mainBodyFrame = QFrame(self.appFrame)
-        self.mainBodyFrame.setObjectName("mainBodyFrame")
+        self.mainBodyGroupBox = QGroupBox(self.appFrame)
+        self.mainBodyGroupBox.setObjectName("mainBodyGroupBox")
         sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(
-            self.mainBodyFrame.sizePolicy().hasHeightForWidth()
+            self.mainBodyGroupBox.sizePolicy().hasHeightForWidth()
         )
-        self.mainBodyFrame.setSizePolicy(sizePolicy3)
-        self.mainBodyFrame.setFrameShape(QFrame.StyledPanel)
-        self.mainBodyFrame.setFrameShadow(QFrame.Raised)
+        self.mainBodyGroupBox.setSizePolicy(sizePolicy3)
+        self.verticalLayout_6 = QVBoxLayout(self.mainBodyGroupBox)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.mainLayout = QVBoxLayout()
+        self.mainLayout.setObjectName("mainLayout")
 
-        self.horizontalLayout_2.addWidget(self.mainBodyFrame)
+        self.verticalLayout_6.addLayout(self.mainLayout)
+
+        self.horizontalLayout_2.addWidget(self.mainBodyGroupBox)
 
         self.sideMenuFrame = QCustomSlideMenu(self.appFrame)
         self.sideMenuFrame.setObjectName("sideMenuFrame")
@@ -204,6 +210,7 @@ class Ui_MainWindow(object):
             self.sideMenuFrame.sizePolicy().hasHeightForWidth()
         )
         self.sideMenuFrame.setSizePolicy(sizePolicy2)
+        self.sideMenuFrame.setMinimumSize(QSize(0, 0))
         font2 = QFont()
         font2.setFamilies(["Arial"])
         font2.setPointSize(18)

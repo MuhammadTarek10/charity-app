@@ -1,9 +1,9 @@
+from typing import Optional
 from PySide6.QtWidgets import QApplication, QMainWindow
 from Custom_Widgets.Widgets import loadJsonStyle
 
-from typing import Optional
-
 from src.interface.views.mainWindow import Ui_MainWindow as View
+from src.interface.views.donations import Ui_Form as DonationsWidget
 
 
 class MainWindow(QMainWindow, View):
@@ -11,6 +11,9 @@ class MainWindow(QMainWindow, View):
         super().__init__(parent)
         self.setupUi(self)
         loadJsonStyle(self, self, jsonFiles=[":/style/style.json"])
+        self.donationsWidget = DonationsWidget()
+        self.donationsWidget.setupUi(self.donationsWidget)
+        self.mainLayout.addWidget(self.donationsWidget)
         self.show()
 
 
