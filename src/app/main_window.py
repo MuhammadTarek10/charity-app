@@ -4,8 +4,8 @@ from Custom_Widgets.Widgets import loadJsonStyle
 from typing import Optional
 
 from src.interface.views.main_window_view import Ui_MainWindow as View
-from src.interface.views.donations import DonationsWidget
-from src.interface.views.case_type import CaseTypesWidget
+from src.app.donations import DonationsWidget
+from src.app.case_type import CaseTypesWidget
 
 
 class MainWindow(QMainWindow, View):

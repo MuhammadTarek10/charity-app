@@ -23,7 +23,7 @@ class DonationsWidget(View):
         price = self.priceEdit.text()
         if quantity and price:
             try:
-                self.totalPriceEdit.setText(str(int(quantity) * float(price)))
+                self.totalPriceEdit.setText(str(float(quantity) * float(price)))
             except:
                 pass
 

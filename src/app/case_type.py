@@ -1,4 +1,3 @@
-from PySide6.QtCore import QDateTime
 from PySide6.QtWidgets import QWidget
 
 from typing import Optional
