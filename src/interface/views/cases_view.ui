@@ -36,7 +36,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
-       <number>0</number>
+       <number>20</number>
       </property>
       <property name="leftMargin">
        <number>0</number>
@@ -52,12 +52,6 @@
       </property>
       <item>
        <widget class="QFrame" name="nameFrame">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
         </property>
@@ -82,12 +76,6 @@
          </property>
          <item>
           <widget class="QLineEdit" name="nameEdit">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -101,12 +89,6 @@
          </item>
          <item>
           <widget class="QLabel" name="nameLabel">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
            <property name="text">
             <string>الاسم</string>
            </property>
@@ -116,57 +98,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="priceFrame">
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <property name="spacing">
-          <number>5</number>
-         </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLineEdit" name="priceEdit">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="inputMethodHints">
-            <set>Qt::ImhDigitsOnly</set>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="priceLabel">
-           <property name="text">
-            <string>الصرف النقدي</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QFrame" name="typeFrame">
+       <widget class="QFrame" name="iDFrame">
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
         </property>
@@ -190,7 +122,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="typeEdit">
+          <widget class="QLineEdit" name="iDEdit">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -201,14 +133,14 @@
             <set>Qt::AlignCenter</set>
            </property>
            <property name="placeholderText">
-            <string>قمح، قماش...</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="typeLabel">
+          <widget class="QLabel" name="iDLabel">
            <property name="text">
-            <string>الصنف</string>
+            <string>الرقم القومي</string>
            </property>
           </widget>
          </item>
@@ -216,7 +148,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="unitFrame">
+       <widget class="QFrame" name="ageFrame">
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
         </property>
@@ -240,7 +172,13 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="unitEdit">
+          <widget class="QSpinBox" name="ageEdit">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -250,15 +188,12 @@
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
-           <property name="placeholderText">
-            <string>كيلو، متر...</string>
-           </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="unitLabel">
+          <widget class="QLabel" name="ageLabel">
            <property name="text">
-            <string>الوحدة</string>
+            <string>السن</string>
            </property>
           </widget>
          </item>
@@ -266,7 +201,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="quantityFrame">
+       <widget class="QFrame" name="addressFame">
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
         </property>
@@ -290,7 +225,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="quantityEdit">
+          <widget class="QLineEdit" name="addressEdit">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -306,9 +241,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="quantityLabel">
+          <widget class="QLabel" name="addressLabel">
            <property name="text">
-            <string>الكمية</string>
+            <string>العنوان</string>
            </property>
           </widget>
          </item>
@@ -316,7 +251,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="dateFrame">
+       <widget class="QFrame" name="phoneFrame">
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
         </property>
@@ -339,6 +274,94 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
+         <item>
+          <widget class="QLineEdit" name="phoneEdit">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="phoneLabel">
+           <property name="text">
+            <string>رقم الهاتف</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="caseFrame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QListWidget" name="caseEdit">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="caseLabel">
+           <property name="text">
+            <string>الحالة</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="childrenFrame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
          <item alignment="Qt::AlignLeft">
           <widget class="QPushButton" name="saveButton">
            <property name="cursor">
@@ -353,24 +376,8 @@
            </property>
           </widget>
          </item>
-         <item alignment="Qt::AlignLeft">
-          <widget class="QCheckBox" name="dateCheckBox">
-           <property name="maximumSize">
-            <size>
-             <width>200</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="text">
-            <string>الان</string>
-           </property>
-          </widget>
-         </item>
          <item>
-          <widget class="QDateEdit" name="dateEdit">
+          <widget class="QSpinBox" name="childrenEdit">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -389,9 +396,15 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="dateLabel">
+          <widget class="QLabel" name="childrenLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
-            <string>التاريخ</string>
+            <string>عدد الأولاد</string>
            </property>
           </widget>
          </item>

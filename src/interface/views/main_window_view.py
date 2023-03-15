@@ -151,6 +151,29 @@ class Ui_MainWindow(object):
             "	background-color: #C9EEFF;\n"
             "	border-radius: 5px;\n"
             "	border: 1px solid;\n"
+            "}\n"
+            "\n"
+            "QSpinBox{\n"
+            "	background-color: #C9EEFF;\n"
+            "	border-radius: 5px;\n"
+            "	border: 1px solid;\n"
+            "	padding-left: 2px;\n"
+            "	padding-right: 2px;\n"
+            "}\n"
+            "\n"
+            "QSpinBox:focus{\n"
+            "	background-color: #97DEFF;\n"
+            "}\n"
+            "\n"
+            "QListView{\n"
+            "	border-radius: 5px;\n"
+            "	border: 1px solid;\n"
+            "	padding-left: 2px;\n"
+            "	padding-right: 2px;\n"
+            "}\n"
+            "\n"
+            "QListView:focus{\n"
+            "	background-color: #97DEFF;\n"
             "}"
         )
         self.centralwidget = QWidget(MainWindow)
@@ -176,6 +199,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.logoLabel = QLabel(self.titleFrame)
+        self.logoLabel.setObjectName("logoLabel")
+        self.logoLabel.setPixmap(QPixmap(":/icons/icons/case.png"))
+        self.logoLabel.setScaledContents(True)
+
+        self.horizontalLayout_4.addWidget(self.logoLabel)
+
         self.titleLabel = QLabel(self.titleFrame)
         self.titleLabel.setObjectName("titleLabel")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
@@ -333,6 +363,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.casesTypesButton)
 
+        self.pushButton = QPushButton(self.mainOptionsFrame)
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
+        icon5 = QIcon()
+        icon5.addFile(":/icons/icons/storage.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon5)
+
+        self.verticalLayout_5.addWidget(self.pushButton)
+
         self.verticalLayout_2.addWidget(self.mainOptionsFrame)
 
         self.spacerFrame = QFrame(self.sideMenuFrame)
@@ -369,9 +408,9 @@ class Ui_MainWindow(object):
         self.settingsButton.setMinimumSize(QSize(0, 0))
         self.settingsButton.setFont(font)
         self.settingsButton.setCursor(QCursor(Qt.PointingHandCursor))
-        icon5 = QIcon()
-        icon5.addFile(":/icons/icons/settings.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.settingsButton.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(":/icons/icons/settings.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.settingsButton.setIcon(icon6)
 
         self.verticalLayout_4.addWidget(self.settingsButton)
 
@@ -380,9 +419,9 @@ class Ui_MainWindow(object):
         self.aboutButton.setMinimumSize(QSize(0, 0))
         self.aboutButton.setFont(font)
         self.aboutButton.setCursor(QCursor(Qt.PointingHandCursor))
-        icon6 = QIcon()
-        icon6.addFile(":/icons/icons/about.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.aboutButton.setIcon(icon6)
+        icon7 = QIcon()
+        icon7.addFile(":/icons/icons/about.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.aboutButton.setIcon(icon7)
 
         self.verticalLayout_4.addWidget(self.aboutButton)
 
@@ -406,6 +445,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(
             QCoreApplication.translate("MainWindow", "MainWindow", None)
         )
+        self.logoLabel.setText("")
         self.titleLabel.setText(
             QCoreApplication.translate(
                 "MainWindow",
@@ -419,14 +459,10 @@ class Ui_MainWindow(object):
             )
         )
         self.donationsButton.setText(
-            QCoreApplication.translate(
-                "MainWindow", "\u0627\u0644\u062a\u0628\u0631\u0639\u0627\u062a", None
-            )
+            QCoreApplication.translate("MainWindow", "\u062a\u0628\u0631\u0639", None)
         )
         self.invoicesButton.setText(
-            QCoreApplication.translate(
-                "MainWindow", "\u0627\u0644\u0645\u0646\u0635\u0631\u0641", None
-            )
+            QCoreApplication.translate("MainWindow", "\u0635\u0631\u0641", None)
         )
         self.casesButton.setText(
             QCoreApplication.translate(
@@ -438,6 +474,11 @@ class Ui_MainWindow(object):
                 "MainWindow",
                 "\u0627\u0646\u0648\u0627\u0639 \u0627\u0644\u062d\u0627\u0644\u0627\u062a",
                 None,
+            )
+        )
+        self.pushButton.setText(
+            QCoreApplication.translate(
+                "MainWindow", "\u0627\u0644\u0645\u062e\u0632\u0646", None
             )
         )
         self.settingsButton.setText(

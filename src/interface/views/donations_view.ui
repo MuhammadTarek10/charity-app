@@ -193,7 +193,7 @@
                <set>Qt::AlignCenter</set>
               </property>
               <property name="placeholderText">
-               <string>1500, 2000...</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -221,7 +221,7 @@
                <set>Qt::AlignCenter</set>
               </property>
               <property name="placeholderText">
-               <string>قمح، فاصوليا...</string>
+               <string>قمح، قماش...</string>
               </property>
              </widget>
             </item>
@@ -249,7 +249,7 @@
                <set>Qt::AlignCenter</set>
               </property>
               <property name="placeholderText">
-               <string>كليو، طن....</string>
+               <string>كليو، متر....</string>
               </property>
              </widget>
             </item>
@@ -277,7 +277,7 @@
                <set>Qt::AlignCenter</set>
               </property>
               <property name="placeholderText">
-               <string>1, 2, 3...</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -308,7 +308,7 @@
                <set>Qt::AlignCenter</set>
               </property>
               <property name="placeholderText">
-               <string>10, 20, 30...</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -429,7 +429,7 @@
                <string notr="true"/>
               </property>
               <property name="text">
-               <string>الوقت الآن</string>
+               <string>الآن</string>
               </property>
              </widget>
             </item>

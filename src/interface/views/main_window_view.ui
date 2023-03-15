@@ -105,6 +105,29 @@ QDateTimeEdit{
 	background-color: #C9EEFF;
 	border-radius: 5px;
 	border: 1px solid;
+}
+
+QSpinBox{
+	background-color: #C9EEFF;
+	border-radius: 5px;
+	border: 1px solid;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+QSpinBox:focus{
+	background-color: #97DEFF;
+}
+
+QListView{
+	border-radius: 5px;
+	border: 1px solid;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+QListView:focus{
+	background-color: #97DEFF;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -166,6 +189,19 @@ QDateTimeEdit{
           <property name="bottomMargin">
            <number>0</number>
           </property>
+          <item>
+           <widget class="QLabel" name="logoLabel">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../assets/resources.qrc">:/icons/icons/case.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QLabel" name="titleLabel">
             <property name="sizePolicy">
@@ -412,7 +448,7 @@ QDateTimeEdit{
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="text">
-                <string>التبرعات</string>
+                <string>تبرع</string>
                </property>
                <property name="icon">
                 <iconset resource="../assets/resources.qrc">
@@ -438,7 +474,7 @@ QDateTimeEdit{
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="text">
-                <string>المنصرف</string>
+                <string>صرف</string>
                </property>
                <property name="icon">
                 <iconset resource="../assets/resources.qrc">
@@ -504,6 +540,20 @@ QDateTimeEdit{
                <property name="icon">
                 <iconset resource="../assets/resources.qrc">
                  <normaloff>:/icons/icons/types.png</normaloff>:/icons/icons/types.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="text">
+                <string>المخزن</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../assets/resources.qrc">
+                 <normaloff>:/icons/icons/storage.png</normaloff>:/icons/icons/storage.png</iconset>
                </property>
               </widget>
              </item>

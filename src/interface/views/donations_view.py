@@ -324,35 +324,25 @@ class Ui_Form(QWidget):
                 None,
             )
         )
-        self.valueEdit.setPlaceholderText(
-            QCoreApplication.translate("Form", "1500, 2000...", None)
-        )
+        self.valueEdit.setPlaceholderText("")
         self.donationTypeEdit.setPlaceholderText(
             QCoreApplication.translate(
-                "Form",
-                "\u0642\u0645\u062d\u060c \u0641\u0627\u0635\u0648\u0644\u064a\u0627...",
-                None,
+                "Form", "\u0642\u0645\u062d\u060c \u0642\u0645\u0627\u0634...", None
             )
         )
         self.unitEdit.setPlaceholderText(
             QCoreApplication.translate(
-                "Form", "\u0643\u0644\u064a\u0648\u060c \u0637\u0646....", None
+                "Form", "\u0643\u0644\u064a\u0648\u060c \u0645\u062a\u0631....", None
             )
         )
-        self.quantityEdit.setPlaceholderText(
-            QCoreApplication.translate("Form", "1, 2, 3...", None)
-        )
-        self.priceEdit.setPlaceholderText(
-            QCoreApplication.translate("Form", "10, 20, 30...", None)
-        )
+        self.quantityEdit.setPlaceholderText("")
+        self.priceEdit.setPlaceholderText("")
         self.totalPriceEdit.setText(QCoreApplication.translate("Form", "0.0", None))
         self.saveButton.setText(
             QCoreApplication.translate("Form", "\u062d\u0641\u0638", None)
         )
         self.timeNowBox.setText(
-            QCoreApplication.translate(
-                "Form", "\u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0622\u0646", None
-            )
+            QCoreApplication.translate("Form", "\u0627\u0644\u0622\u0646", None)
         )
         self.nameLabel.setText(
             QCoreApplication.translate("Form", "\u0627\u0644\u0627\u0633\u0645", None)

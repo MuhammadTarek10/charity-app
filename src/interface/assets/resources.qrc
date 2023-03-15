@@ -7,6 +7,7 @@
     <file>icons/types.png</file>
     <file>icons/save.png</file>
     <file>icons/donation.png</file>
+    <file>icons/storage.png</file>
     <file>icons/money.png</file>
     <file>icons/menu.png</file>
   </qresource>

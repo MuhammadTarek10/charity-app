@@ -76,6 +76,11 @@ class Ui_Form(QWidget):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.nameFrame = QFrame(self.widgetFrame)
         self.nameFrame.setObjectName("nameFrame")
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.nameFrame.sizePolicy().hasHeightForWidth())
+        self.nameFrame.setSizePolicy(sizePolicy)
         self.nameFrame.setFrameShape(QFrame.StyledPanel)
         self.nameFrame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.nameFrame)
@@ -84,12 +89,23 @@ class Ui_Form(QWidget):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.nameEdit = QLineEdit(self.nameFrame)
         self.nameEdit.setObjectName("nameEdit")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.nameEdit.sizePolicy().hasHeightForWidth())
+        self.nameEdit.setSizePolicy(sizePolicy1)
+        self.nameEdit.setMinimumSize(QSize(0, 0))
         self.nameEdit.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_2.addWidget(self.nameEdit)
 
         self.nameLabel = QLabel(self.nameFrame)
         self.nameLabel.setObjectName("nameLabel")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.nameLabel.sizePolicy().hasHeightForWidth())
+        self.nameLabel.setSizePolicy(sizePolicy2)
 
         self.horizontalLayout_2.addWidget(self.nameLabel)
 
@@ -105,6 +121,7 @@ class Ui_Form(QWidget):
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.priceEdit = QLineEdit(self.priceFrame)
         self.priceEdit.setObjectName("priceEdit")
+        self.priceEdit.setMinimumSize(QSize(0, 0))
         self.priceEdit.setInputMethodHints(Qt.ImhDigitsOnly)
         self.priceEdit.setAlignment(Qt.AlignCenter)
 
@@ -127,6 +144,7 @@ class Ui_Form(QWidget):
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.typeEdit = QLineEdit(self.typeFrame)
         self.typeEdit.setObjectName("typeEdit")
+        self.typeEdit.setMinimumSize(QSize(0, 0))
         self.typeEdit.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_3.addWidget(self.typeEdit)
@@ -148,6 +166,7 @@ class Ui_Form(QWidget):
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.unitEdit = QLineEdit(self.unitFrame)
         self.unitEdit.setObjectName("unitEdit")
+        self.unitEdit.setMinimumSize(QSize(0, 0))
         self.unitEdit.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.unitEdit)
@@ -169,6 +188,7 @@ class Ui_Form(QWidget):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.quantityEdit = QLineEdit(self.quantityFrame)
         self.quantityEdit.setObjectName("quantityEdit")
+        self.quantityEdit.setMinimumSize(QSize(0, 0))
         self.quantityEdit.setInputMethodHints(Qt.ImhDigitsOnly)
         self.quantityEdit.setAlignment(Qt.AlignCenter)
 
@@ -196,17 +216,19 @@ class Ui_Form(QWidget):
         icon.addFile(":/icons/icons/save.png", QSize(), QIcon.Normal, QIcon.Off)
         self.saveButton.setIcon(icon)
 
-        self.horizontalLayout_7.addWidget(self.saveButton)
+        self.horizontalLayout_7.addWidget(self.saveButton, 0, Qt.AlignLeft)
 
         self.dateCheckBox = QCheckBox(self.dateFrame)
         self.dateCheckBox.setObjectName("dateCheckBox")
         self.dateCheckBox.setMaximumSize(QSize(200, 16777215))
         self.dateCheckBox.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.horizontalLayout_7.addWidget(self.dateCheckBox)
+        self.horizontalLayout_7.addWidget(self.dateCheckBox, 0, Qt.AlignLeft)
 
         self.dateEdit = QDateEdit(self.dateFrame)
         self.dateEdit.setObjectName("dateEdit")
+        sizePolicy1.setHeightForWidth(self.dateEdit.sizePolicy().hasHeightForWidth())
+        self.dateEdit.setSizePolicy(sizePolicy1)
         self.dateEdit.setMinimumSize(QSize(400, 0))
         self.dateEdit.setAlignment(Qt.AlignCenter)
 
@@ -241,9 +263,7 @@ class Ui_Form(QWidget):
         )
         self.typeEdit.setPlaceholderText(
             QCoreApplication.translate(
-                "Form",
-                "\u0642\u0645\u062d\u060c \u0641\u0627\u0635\u0648\u0644\u064a\u0627...",
-                None,
+                "Form", "\u0642\u0645\u062d\u060c \u0642\u0645\u0627\u0634...", None
             )
         )
         self.typeLabel.setText(

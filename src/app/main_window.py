@@ -7,6 +7,7 @@ from src.interface.views.main_window_view import Ui_MainWindow as View
 from src.app.donations import DonationsWidget
 from src.app.case_type import CaseTypesWidget
 from src.app.invoices import InvoicesWidget
+from src.app.cases import CasesWidget
 from src.logic.config.config import Config
 
 
@@ -21,6 +22,9 @@ class MainWindow(QMainWindow, View):
             lambda event: self.addWidget(
                 DonationsWidget(), Config.DONATIONS_WIDGET_INDEX
             )
+        )
+        self.casesButton.clicked.connect(
+            lambda event: self.addWidget(CasesWidget(), Config.CASES_WIDGET_INDEX)
         )
         self.casesTypesButton.clicked.connect(
             lambda event: self.addWidget(
