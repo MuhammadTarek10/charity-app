@@ -63,13 +63,14 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName("MainWindow")
         MainWindow.resize(860, 700)
-        MainWindow.setMinimumSize(QSize(860, 700))
+        MainWindow.setMinimumSize(QSize(860, 0))
         MainWindow.setStyleSheet(
             "*{\n"
             "	border: none;\n"
-            "	background-color: #FFFFFF;\n"
+            "	background-color: #FAFAFA;\n"
             "	color: #000000;\n"
             "	font-size: 20px;\n"
+            "	padding: 2px;\n"
             "}\n"
             "\n"
             "QLabel{\n"
@@ -84,7 +85,6 @@ class Ui_MainWindow(object):
             "	background-color: #97DEFF;\n"
             "	border-radius: 5px;\n"
             "	border: 1px solid;\n"
-            "\n"
             " }\n"
             "\n"
             "QPushButton:pressed{\n"
@@ -102,6 +102,57 @@ class Ui_MainWindow(object):
             "}\n"
             "#mainBodyGroupBox{\n"
             "	margin-right: 10px;\n"
+            "	border-radius: 5px;\n"
+            "	border: 1px solid;\n"
+            "}\n"
+            "\n"
+            "#labelsFrame{\n"
+            "	border-radius: 5px;\n"
+            "}\n"
+            "\n"
+            "#valuesFrame{\n"
+            "	border-radius: 8px;\n"
+            "}\n"
+            "\n"
+            "#timeNowBox{\n"
+            "	border: 1px solid;\n"
+            "	border-radius: 5px;\n"
+            "}\n"
+            "\n"
+            "#saveButton{\n"
+            "	font-size: 18px;\n"
+            "}\n"
+            "\n"
+            "QDateTimeEdit{\n"
+            "	background-color : #000000;\n"
+            "	padding : 5px;\n"
+            "	margin-ri"
+            "ght: 5px;\n"
+            "}\n"
+            "\n"
+            "QDateTimeEdit:up-arrow{\n"
+            "	color: #000000;\n"
+            "}\n"
+            "\n"
+            "QDateTimeEdit:down-arrow{\n"
+            "	color: #000000;\n"
+            "}\n"
+            "\n"
+            "\n"
+            "QLineEdit{\n"
+            "	background-color: #C9EEFF;\n"
+            "	border-radius: 5px;\n"
+            "	border: 1px solid;\n"
+            "	padding-left: 2px;\n"
+            "	padding-right: 2px;\n"
+            "}\n"
+            "\n"
+            "QLineEdit:focus{\n"
+            "	background-color: #97DEFF;\n"
+            "}\n"
+            "\n"
+            "QDateTimeEdit{\n"
+            "	background-color: #C9EEFF;\n"
             "	border-radius: 5px;\n"
             "	border: 1px solid;\n"
             "}"
@@ -208,19 +259,22 @@ class Ui_MainWindow(object):
 
         self.sideMenuFrame = QCustomSlideMenu(self.appFrame)
         self.sideMenuFrame.setObjectName("sideMenuFrame")
-        sizePolicy2.setHeightForWidth(
+        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(
             self.sideMenuFrame.sizePolicy().hasHeightForWidth()
         )
-        self.sideMenuFrame.setSizePolicy(sizePolicy2)
+        self.sideMenuFrame.setSizePolicy(sizePolicy4)
         self.sideMenuFrame.setMinimumSize(QSize(0, 0))
         self.sideMenuFrame.setFont(font)
         self.sideMenuFrame.setCursor(QCursor(Qt.ArrowCursor))
         self.sideMenuFrame.setFrameShape(QFrame.StyledPanel)
         self.sideMenuFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.sideMenuFrame)
-        self.verticalLayout_2.setSpacing(15)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(10, 10, 10, 10)
+        self.verticalLayout_2.setContentsMargins(0, 10, 0, 10)
         self.mainOptionsFrame = QFrame(self.sideMenuFrame)
         self.mainOptionsFrame.setObjectName("mainOptionsFrame")
         sizePolicy3.setHeightForWidth(
@@ -231,9 +285,9 @@ class Ui_MainWindow(object):
         self.mainOptionsFrame.setFrameShape(QFrame.StyledPanel)
         self.mainOptionsFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.mainOptionsFrame)
-        self.verticalLayout_5.setSpacing(20)
+        self.verticalLayout_5.setSpacing(15)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(10, 10, 10, 10)
+        self.verticalLayout_5.setContentsMargins(5, 0, 5, 0)
         self.donationsButton = QPushButton(self.mainOptionsFrame)
         self.donationsButton.setObjectName("donationsButton")
         self.donationsButton.setMinimumSize(QSize(0, 0))
@@ -280,13 +334,22 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.casesTypesButton)
 
-        self.verticalLayout_2.addWidget(self.mainOptionsFrame, 0, Qt.AlignRight)
+        self.verticalLayout_2.addWidget(self.mainOptionsFrame)
 
+        self.spacerFrame = QFrame(self.sideMenuFrame)
+        self.spacerFrame.setObjectName("spacerFrame")
+        self.spacerFrame.setMinimumSize(QSize(0, 0))
+        self.spacerFrame.setFrameShape(QFrame.StyledPanel)
+        self.spacerFrame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.spacerFrame)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.verticalSpacer = QSpacerItem(
             20, 2000, QSizePolicy.Minimum, QSizePolicy.Expanding
         )
 
-        self.verticalLayout_2.addItem(self.verticalSpacer)
+        self.horizontalLayout_3.addItem(self.verticalSpacer)
+
+        self.verticalLayout_2.addWidget(self.spacerFrame)
 
         self.settingsFrame = QFrame(self.sideMenuFrame)
         self.settingsFrame.setObjectName("settingsFrame")
@@ -298,9 +361,9 @@ class Ui_MainWindow(object):
         self.settingsFrame.setFrameShape(QFrame.StyledPanel)
         self.settingsFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.settingsFrame)
-        self.verticalLayout_4.setSpacing(20)
+        self.verticalLayout_4.setSpacing(15)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(10, 10, 10, 10)
+        self.verticalLayout_4.setContentsMargins(5, 0, 5, 0)
         self.settingsButton = QPushButton(self.settingsFrame)
         self.settingsButton.setObjectName("settingsButton")
         self.settingsButton.setEnabled(True)
@@ -317,6 +380,7 @@ class Ui_MainWindow(object):
         self.aboutButton.setObjectName("aboutButton")
         self.aboutButton.setMinimumSize(QSize(0, 0))
         self.aboutButton.setFont(font)
+        self.aboutButton.setCursor(QCursor(Qt.PointingHandCursor))
         icon6 = QIcon()
         icon6.addFile(":/icons/icons/about.png", QSize(), QIcon.Normal, QIcon.Off)
         self.aboutButton.setIcon(icon6)
@@ -325,7 +389,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.settingsFrame)
 
-        self.horizontalLayout_2.addWidget(self.sideMenuFrame, 0, Qt.AlignVCenter)
+        self.horizontalLayout_2.addWidget(
+            self.sideMenuFrame, 0, Qt.AlignHCenter | Qt.AlignVCenter
+        )
 
         self.verticalLayout.addWidget(self.appFrame)
 

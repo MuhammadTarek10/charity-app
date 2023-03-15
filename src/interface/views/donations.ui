@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>576</width>
-    <height>548</height>
+    <width>553</width>
+    <height>618</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>576</width>
+    <width>548</width>
     <height>548</height>
    </size>
   </property>
@@ -20,66 +20,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">*{
-	border: none;
-	background-color: #FFFFFF;
-	color: #000000;
-	font-size: 20px;
-}
-
-#labelsFrame{
-	border-radius: 5px;
-}
-
-#valuesFrame{
-	border-radius: 8px;
-}
-
-QDateTimeEdit{
-	background-color : #000000;
-	padding : 5px;
-	margin-right: 5px;
-}
-
-QDateTimeEdit:up-arrow{
-	color: #000000;
-}
-
-QDateTimeEdit:down-arrow{
-	color: #000000;
-}
-
-
-QLineEdit{
-	background-color: #C9EEFF;
-	border-radius: 5px;
-	border: 1px solid;
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-QLineEdit:focus{
-	background-color: #97DEFF;
-}
-
-QDateTimeEdit{
-	background-color: #C9EEFF;
-	border-radius: 5px;
-	border: 1px solid;
-}
-
-QPushButton{
-	background-color: #97DEFF;
-	border-radius: 5px;
-	border: 1px solid;
-}
-QPushButton:pressed{
-	background-color: #AA77FF;
-	border: 4px solid;
-}
-QPushButton:hover{
-	background-color: #62CDFF;
-}</string>
+   <string notr="true"/>
   </property>
   <property name="locale">
    <locale language="Arabic" country="Egypt"/>
@@ -109,7 +50,7 @@ QPushButton:hover{
       <item>
        <widget class="QFrame" name="valuesFrame">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -126,9 +67,9 @@ QPushButton:hover{
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <layout class="QVBoxLayout" name="verticalLayout_4">
          <property name="spacing">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="leftMargin">
           <number>5</number>
@@ -140,7 +81,7 @@ QPushButton:hover{
           <number>5</number>
          </property>
          <property name="bottomMargin">
-          <number>10</number>
+          <number>5</number>
          </property>
          <item>
           <widget class="QFrame" name="editFrame">
@@ -195,6 +136,9 @@ QPushButton:hover{
                 <height>20</height>
                </size>
               </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
              </widget>
             </item>
             <item>
@@ -216,6 +160,12 @@ QPushButton:hover{
                 <width>16777215</width>
                 <height>20</height>
                </size>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>زكاة فطر، زكاة مال..</string>
               </property>
              </widget>
             </item>
@@ -239,6 +189,12 @@ QPushButton:hover{
                 <height>20</height>
                </size>
               </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>1500, 2000...</string>
+              </property>
              </widget>
             </item>
             <item>
@@ -261,27 +217,11 @@ QPushButton:hover{
                 <height>20</height>
                </size>
               </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="quantityEdit">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>40</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>20</height>
-               </size>
+              <property name="placeholderText">
+               <string>قمح، فاصوليا...</string>
               </property>
              </widget>
             </item>
@@ -305,12 +245,46 @@ QPushButton:hover{
                 <height>20</height>
                </size>
               </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>كليو، طن....</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="quantityEdit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>1, 2, 3...</string>
+              </property>
              </widget>
             </item>
             <item>
              <widget class="QLineEdit" name="priceEdit">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -330,6 +304,12 @@ QPushButton:hover{
                 <height>20</height>
                </size>
               </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>10, 20, 30...</string>
+              </property>
              </widget>
             </item>
             <item>
@@ -347,9 +327,7 @@ QPushButton:hover{
                </size>
               </property>
               <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
+               <font/>
               </property>
               <property name="text">
                <string>0.0</string>
@@ -362,7 +340,7 @@ QPushButton:hover{
            </layout>
           </widget>
          </item>
-         <item alignment="Qt::AlignVCenter">
+         <item>
           <widget class="QFrame" name="dateFrame">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -390,19 +368,19 @@ QPushButton:hover{
              <number>10</number>
             </property>
             <property name="leftMargin">
-             <number>5</number>
+             <number>0</number>
             </property>
             <property name="topMargin">
              <number>0</number>
             </property>
             <property name="rightMargin">
-             <number>5</number>
+             <number>0</number>
             </property>
             <property name="bottomMargin">
              <number>0</number>
             </property>
             <item>
-             <widget class="QPushButton" name="timeNowButton">
+             <widget class="QPushButton" name="saveButton">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -423,11 +401,25 @@ QPushButton:hover{
               </property>
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <family>Arial</family>
+                <pointsize>13</pointsize>
                </font>
               </property>
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="text">
+               <string>حفظ</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="timeNowBox">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>الوقت الآن</string>
@@ -453,6 +445,12 @@ QPushButton:hover{
                 <width>16777215</width>
                 <height>40</height>
                </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Arial</family>
+                <pointsize>18</pointsize>
+               </font>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -493,7 +491,8 @@ QPushButton:hover{
           <widget class="QLabel" name="nameLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -505,7 +504,8 @@ QPushButton:hover{
           <widget class="QLabel" name="typeLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -517,7 +517,8 @@ QPushButton:hover{
           <widget class="QLabel" name="valueLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -529,7 +530,8 @@ QPushButton:hover{
           <widget class="QLabel" name="donationTypeLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -541,7 +543,8 @@ QPushButton:hover{
           <widget class="QLabel" name="unitLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -553,7 +556,8 @@ QPushButton:hover{
           <widget class="QLabel" name="quantityLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -565,7 +569,8 @@ QPushButton:hover{
           <widget class="QLabel" name="priceLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -577,7 +582,8 @@ QPushButton:hover{
           <widget class="QLabel" name="totalPriceLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -589,7 +595,8 @@ QPushButton:hover{
           <widget class="QLabel" name="dateLabel">
            <property name="font">
             <font>
-             <pointsize>-1</pointsize>
+             <family>Arial</family>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">

@@ -1,25 +1,22 @@
 from typing import Optional
-from PySide6.QtWidgets import QApplication, QMainWindow
-from Custom_Widgets.Widgets import loadJsonStyle
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget
 
-from src.interface.views.mainWindow import Ui_MainWindow as View
-from src.interface.views.donations import Ui_Form as DonationsWidget
+from src.interface.views.main_window import MainWindow
+from src.interface.views.donations import DonationsWidget
 
 
-class MainWindow(QMainWindow, View):
+class App(QMainWindow):
     def __init__(self, parent: Optional[QMainWindow] = None) -> None:
         super().__init__(parent)
-        self.setupUi(self)
-        loadJsonStyle(self, self, jsonFiles=[":/style/style.json"])
-        self.donationsWidget = DonationsWidget()
-        self.donationsWidget.setupUi(self.donationsWidget)
-        self.mainLayout.addWidget(self.donationsWidget)
-        self.show()
+        self.main = MainWindow()
+        self.widget: Optional[QWidget] = None
+        self.main.addWidget(DonationsWidget())
+        self.main.show()
 
 
 if __name__ == "__main__":
     import sys
 
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = App()
     sys.exit(app.exec())
