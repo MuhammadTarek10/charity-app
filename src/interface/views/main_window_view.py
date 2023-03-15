@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainWindow.ui'
+## Form generated from reading UI file 'main_window_view.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -119,18 +119,18 @@ class Ui_MainWindow(object):
             "	font-size: 18px;\n"
             "}\n"
             "\n"
-            "QDateTimeEdit{\n"
+            "QDateEdit{\n"
             "	background-color : #000000;\n"
             "	padding : 5px;\n"
-            "	margin-right: 5px;\n"
+            "	margin-right: 10px;\n"
             "}\n"
             "\n"
-            "QDateTimeEdit:up-arrow{\n"
+            "QDateEdit:up-arrow{\n"
             "	color: #000000;\n"
             "}\n"
             "\n"
-            ""
-            "QDateTimeEdit:down-arrow{\n"
+            "QDateE"
+            "dit:down-arrow{\n"
             "	color: #000000;\n"
             "}\n"
             "\n"

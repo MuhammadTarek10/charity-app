@@ -74,17 +74,17 @@ QPushButton:hover{
 	font-size: 18px;
 }
 
-QDateTimeEdit{
+QDateEdit{
 	background-color : #000000;
 	padding : 5px;
-	margin-right: 5px;
+	margin-right: 10px;
 }
 
-QDateTimeEdit:up-arrow{
+QDateEdit:up-arrow{
 	color: #000000;
 }
 
-QDateTimeEdit:down-arrow{
+QDateEdit:down-arrow{
 	color: #000000;
 }
 

@@ -43,7 +43,7 @@ from PySide6.QtGui import (
 from PySide6.QtWidgets import (
     QApplication,
     QCheckBox,
-    QDateTimeEdit,
+    QDateEdit,
     QFrame,
     QHBoxLayout,
     QLabel,
@@ -225,19 +225,19 @@ class Ui_Form(QWidget):
 
         self.horizontalLayout_3.addWidget(self.timeNowBox)
 
-        self.dateTimeEdit = QDateTimeEdit(self.dateFrame)
-        self.dateTimeEdit.setObjectName("dateTimeEdit")
-        sizePolicy.setHeightForWidth(self.dateTimeEdit.sizePolicy().hasHeightForWidth())
-        self.dateTimeEdit.setSizePolicy(sizePolicy)
-        self.dateTimeEdit.setMinimumSize(QSize(0, 40))
-        self.dateTimeEdit.setMaximumSize(QSize(16777215, 40))
+        self.dateEdit = QDateEdit(self.dateFrame)
+        self.dateEdit.setObjectName("dateEdit")
+        sizePolicy.setHeightForWidth(self.dateEdit.sizePolicy().hasHeightForWidth())
+        self.dateEdit.setSizePolicy(sizePolicy)
+        self.dateEdit.setMinimumSize(QSize(0, 40))
+        self.dateEdit.setMaximumSize(QSize(16777215, 40))
         font2 = QFont()
         font2.setFamilies(["Arial"])
         font2.setPointSize(18)
-        self.dateTimeEdit.setFont(font2)
-        self.dateTimeEdit.setAlignment(Qt.AlignCenter)
+        self.dateEdit.setFont(font2)
+        self.dateEdit.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_3.addWidget(self.dateTimeEdit)
+        self.horizontalLayout_3.addWidget(self.dateEdit)
 
         self.verticalLayout_4.addWidget(self.dateFrame)
 

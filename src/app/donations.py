@@ -1,4 +1,4 @@
-from PySide6.QtCore import QDateTime
+from PySide6.QtCore import QDate
 from PySide6.QtWidgets import QWidget
 
 from typing import Optional
@@ -28,7 +28,7 @@ class DonationsWidget(View):
                 pass
 
     def timeNow(self) -> None:
-        self.dateTimeEdit.setDateTime(QDateTime.currentDateTime())
+        self.dateEdit.setDate(QDate.currentDate())
 
     def save(self) -> None:
         pass
