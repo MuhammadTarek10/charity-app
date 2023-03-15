@@ -24,6 +24,7 @@
 	border: none;
 	background-color: #FAFAFA;
 	color: #000000;
+	font-family: Arial;
 	font-size: 20px;
 	padding: 2px;
 }
@@ -67,11 +68,6 @@ QPushButton:hover{
 
 #valuesFrame{
 	border-radius: 8px;
-}
-
-#timeNowBox{
-	border: 1px solid;
-	border-radius: 5px;
 }
 
 #saveButton{
@@ -180,6 +176,7 @@ QDateTimeEdit{
             </property>
             <property name="font">
              <font>
+              <family>Arial</family>
               <pointsize>-1</pointsize>
              </font>
             </property>
@@ -225,6 +222,7 @@ QDateTimeEdit{
             </property>
             <property name="font">
              <font>
+              <family>Arial</family>
               <pointsize>-1</pointsize>
              </font>
             </property>
@@ -294,6 +292,21 @@ QDateTimeEdit{
           </sizepolicy>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
           <item>
            <layout class="QVBoxLayout" name="mainLayout"/>
           </item>
@@ -316,6 +329,7 @@ QDateTimeEdit{
          </property>
          <property name="font">
           <font>
+           <family>Arial</family>
            <pointsize>-1</pointsize>
           </font>
          </property>
@@ -390,6 +404,7 @@ QDateTimeEdit{
                </property>
                <property name="font">
                 <font>
+                 <family>Arial</family>
                  <pointsize>-1</pointsize>
                 </font>
                </property>
@@ -415,6 +430,7 @@ QDateTimeEdit{
                </property>
                <property name="font">
                 <font>
+                 <family>Arial</family>
                  <pointsize>-1</pointsize>
                 </font>
                </property>
@@ -446,6 +462,7 @@ QDateTimeEdit{
                </property>
                <property name="font">
                 <font>
+                 <family>Arial</family>
                  <pointsize>-1</pointsize>
                 </font>
                </property>
@@ -474,6 +491,7 @@ QDateTimeEdit{
                </property>
                <property name="font">
                 <font>
+                 <family>Arial</family>
                  <pointsize>-1</pointsize>
                 </font>
                </property>
@@ -569,6 +587,7 @@ QDateTimeEdit{
                </property>
                <property name="font">
                 <font>
+                 <family>Arial</family>
                  <pointsize>-1</pointsize>
                 </font>
                </property>
@@ -594,6 +613,7 @@ QDateTimeEdit{
                </property>
                <property name="font">
                 <font>
+                 <family>Arial</family>
                  <pointsize>-1</pointsize>
                 </font>
                </property>

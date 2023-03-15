@@ -69,6 +69,7 @@ class Ui_MainWindow(object):
             "	border: none;\n"
             "	background-color: #FAFAFA;\n"
             "	color: #000000;\n"
+            "	font-family: Arial;\n"
             "	font-size: 20px;\n"
             "	padding: 2px;\n"
             "}\n"
@@ -114,11 +115,6 @@ class Ui_MainWindow(object):
             "	border-radius: 8px;\n"
             "}\n"
             "\n"
-            "#timeNowBox{\n"
-            "	border: 1px solid;\n"
-            "	border-radius: 5px;\n"
-            "}\n"
-            "\n"
             "#saveButton{\n"
             "	font-size: 18px;\n"
             "}\n"
@@ -126,14 +122,14 @@ class Ui_MainWindow(object):
             "QDateTimeEdit{\n"
             "	background-color : #000000;\n"
             "	padding : 5px;\n"
-            "	margin-ri"
-            "ght: 5px;\n"
+            "	margin-right: 5px;\n"
             "}\n"
             "\n"
             "QDateTimeEdit:up-arrow{\n"
             "	color: #000000;\n"
             "}\n"
             "\n"
+            ""
             "QDateTimeEdit:down-arrow{\n"
             "	color: #000000;\n"
             "}\n"
@@ -188,6 +184,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.titleLabel.sizePolicy().hasHeightForWidth())
         self.titleLabel.setSizePolicy(sizePolicy)
         font = QFont()
+        font.setFamilies(["Arial"])
         self.titleLabel.setFont(font)
         self.titleLabel.setAlignment(Qt.AlignCenter)
 
@@ -249,7 +246,9 @@ class Ui_MainWindow(object):
         )
         self.mainBodyGroupBox.setSizePolicy(sizePolicy3)
         self.verticalLayout_6 = QVBoxLayout(self.mainBodyGroupBox)
+        self.verticalLayout_6.setSpacing(0)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(5, 5, 5, 5)
         self.mainLayout = QVBoxLayout()
         self.mainLayout.setObjectName("mainLayout")
 

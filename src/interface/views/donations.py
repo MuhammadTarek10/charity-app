@@ -29,7 +29,6 @@ class DonationsWidget(View):
 
     def timeNow(self) -> None:
         self.dateTimeEdit.setDateTime(QDateTime.currentDateTime())
-        self.timeNowBox.setChecked(False)
 
     def save(self) -> None:
         pass

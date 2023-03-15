@@ -53,13 +53,14 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
+import src.interface.assets.resources
 
 
 class Ui_Form(QWidget):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName("Form")
-        Form.resize(553, 618)
+        Form.resize(604, 548)
         Form.setMinimumSize(QSize(548, 548))
         Form.setStyleSheet("")
         Form.setLocale(QLocale(QLocale.Arabic, QLocale.Egypt))
@@ -198,7 +199,7 @@ class Ui_Form(QWidget):
         self.horizontalLayout_3 = QHBoxLayout(self.dateFrame)
         self.horizontalLayout_3.setSpacing(10)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_3.setContentsMargins(5, 0, 5, 0)
         self.saveButton = QPushButton(self.dateFrame)
         self.saveButton.setObjectName("saveButton")
         sizePolicy.setHeightForWidth(self.saveButton.sizePolicy().hasHeightForWidth())
@@ -210,12 +211,17 @@ class Ui_Form(QWidget):
         font1.setPointSize(13)
         self.saveButton.setFont(font1)
         self.saveButton.setCursor(QCursor(Qt.PointingHandCursor))
+        icon = QIcon()
+        icon.addFile(":/icons/icons/save.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.saveButton.setIcon(icon)
 
         self.horizontalLayout_3.addWidget(self.saveButton)
 
         self.timeNowBox = QCheckBox(self.dateFrame)
         self.timeNowBox.setObjectName("timeNowBox")
+        self.timeNowBox.setCursor(QCursor(Qt.PointingHandCursor))
         self.timeNowBox.setLayoutDirection(Qt.LeftToRight)
+        self.timeNowBox.setStyleSheet("")
 
         self.horizontalLayout_3.addWidget(self.timeNowBox)
 

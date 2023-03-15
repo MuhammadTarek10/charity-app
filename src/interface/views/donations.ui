@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>553</width>
-    <height>618</height>
+    <width>604</width>
+    <height>548</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -368,13 +368,13 @@
              <number>10</number>
             </property>
             <property name="leftMargin">
-             <number>0</number>
+             <number>5</number>
             </property>
             <property name="topMargin">
              <number>0</number>
             </property>
             <property name="rightMargin">
-             <number>0</number>
+             <number>5</number>
             </property>
             <property name="bottomMargin">
              <number>0</number>
@@ -411,10 +411,17 @@
               <property name="text">
                <string>حفظ</string>
               </property>
+              <property name="icon">
+               <iconset resource="../assets/resources.qrc">
+                <normaloff>:/icons/icons/save.png</normaloff>:/icons/icons/save.png</iconset>
+              </property>
              </widget>
             </item>
             <item>
              <widget class="QCheckBox" name="timeNowBox">
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
               <property name="layoutDirection">
                <enum>Qt::LeftToRight</enum>
               </property>
@@ -612,6 +619,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../assets/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
