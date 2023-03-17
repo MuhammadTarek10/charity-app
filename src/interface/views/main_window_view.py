@@ -97,6 +97,75 @@ class Ui_MainWindow(object):
             "	background-color: #62CDFF;\n"
             "}\n"
             "\n"
+            "QDateEdit{\n"
+            "	background-color : #000000;\n"
+            "	padding : 5px;\n"
+            "	margin-right: 10px;\n"
+            "}\n"
+            "\n"
+            "QDateEdit:up-arrow{\n"
+            "	color: #000000;\n"
+            "}\n"
+            "\n"
+            "QDateEdit:down-arrow{\n"
+            "	color: #000000;\n"
+            "}\n"
+            "\n"
+            "\n"
+            "QLineEdit{\n"
+            "	background-color: #C9EEFF;\n"
+            "	border-radius: 5px;\n"
+            "	border: 1px solid;\n"
+            "	padding-left: 2px;\n"
+            "	padding-right: 2px;\n"
+            "}\n"
+            "\n"
+            "QLineEdit:focus{\n"
+            "	background-color: #97DEFF;\n"
+            "}\n"
+            "\n"
+            "QDateTimeEdit{\n"
+            "	background-color: #C9EEFF;\n"
+            "	border: 1px "
+            "solid;\n"
+            "	border-radius: 5px;\n"
+            "}\n"
+            "\n"
+            "QSpinBox{\n"
+            "	background-color: #C9EEFF;\n"
+            "	border-radius: 5px;\n"
+            "	border: 1px solid;\n"
+            "	padding-left: 2px;\n"
+            "	padding-right: 2px;\n"
+            "}\n"
+            "\n"
+            "QSpinBox:focus{\n"
+            "	background-color: #97DEFF;\n"
+            "}\n"
+            "\n"
+            "QDoubleSpinBox{\n"
+            "	background-color: #C9EEFF;\n"
+            "	border-radius: 5px;\n"
+            "	border: 1px solid;\n"
+            "	padding-left: 2px;\n"
+            "	padding-right: 2px;\n"
+            "}\n"
+            "\n"
+            "QDoubleSpinBox:focus{\n"
+            "	background-color: #97DEFF;\n"
+            "}\n"
+            "\n"
+            "QListView{\n"
+            "	border-radius: 5px;\n"
+            "	border: 1px solid;\n"
+            "	padding-left: 2px;\n"
+            "	padding-right: 2px;\n"
+            "}\n"
+            "\n"
+            "QListView:focus{\n"
+            "	background-color: #97DEFF;\n"
+            "}\n"
+            "\n"
             "#sideMenuFrame{\n"
             "	border: 1px solid;\n"
             "	border-radius: 5px;\n"
@@ -119,61 +188,22 @@ class Ui_MainWindow(object):
             "	font-size: 18px;\n"
             "}\n"
             "\n"
-            "QDateEdit{\n"
-            "	background-color : #000000;\n"
-            "	padding : 5px;\n"
-            "	margin-right: 10px;\n"
+            "#"
+            "storageFrame{\n"
+            "	border: 1px solid;\n"
+            "	border-radius: 5px;\n"
             "}\n"
             "\n"
-            "QDateEdit:up-arrow{\n"
+            "#QTableWidget{\n"
             "	color: #000000;\n"
-            "}\n"
-            "\n"
-            "QDateE"
-            "dit:down-arrow{\n"
-            "	color: #000000;\n"
-            "}\n"
-            "\n"
-            "\n"
-            "QLineEdit{\n"
-            "	background-color: #C9EEFF;\n"
-            "	border-radius: 5px;\n"
             "	border: 1px solid;\n"
-            "	padding-left: 2px;\n"
-            "	padding-right: 2px;\n"
+            "	border-radius: 14px;\n"
+            "	padding: 8px;\n"
             "}\n"
             "\n"
-            "QLineEdit:focus{\n"
-            "	background-color: #97DEFF;\n"
-            "}\n"
-            "\n"
-            "QDateTimeEdit{\n"
-            "	background-color: #C9EEFF;\n"
+            "QHeaderView{\n"
+            "	font-size: 25px;\n"
             "	border-radius: 5px;\n"
-            "	border: 1px solid;\n"
-            "}\n"
-            "\n"
-            "QSpinBox{\n"
-            "	background-color: #C9EEFF;\n"
-            "	border-radius: 5px;\n"
-            "	border: 1px solid;\n"
-            "	padding-left: 2px;\n"
-            "	padding-right: 2px;\n"
-            "}\n"
-            "\n"
-            "QSpinBox:focus{\n"
-            "	background-color: #97DEFF;\n"
-            "}\n"
-            "\n"
-            "QListView{\n"
-            "	border-radius: 5px;\n"
-            "	border: 1px solid;\n"
-            "	padding-left: 2px;\n"
-            "	padding-right: 2px;\n"
-            "}\n"
-            "\n"
-            "QListView:focus{\n"
-            "	background-color: #97DEFF;\n"
             "}"
         )
         self.centralwidget = QWidget(MainWindow)
@@ -201,7 +231,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.logoLabel = QLabel(self.titleFrame)
         self.logoLabel.setObjectName("logoLabel")
-        self.logoLabel.setPixmap(QPixmap(":/icons/icons/case.png"))
+        self.logoLabel.setMaximumSize(QSize(50, 50))
+        self.logoLabel.setPixmap(QPixmap(":/images/images/logo1.png"))
         self.logoLabel.setScaledContents(True)
 
         self.horizontalLayout_4.addWidget(self.logoLabel)
@@ -363,14 +394,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.casesTypesButton)
 
-        self.pushButton = QPushButton(self.mainOptionsFrame)
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.storageButton = QPushButton(self.mainOptionsFrame)
+        self.storageButton.setObjectName("storageButton")
+        self.storageButton.setCursor(QCursor(Qt.PointingHandCursor))
         icon5 = QIcon()
         icon5.addFile(":/icons/icons/storage.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon5)
+        self.storageButton.setIcon(icon5)
 
-        self.verticalLayout_5.addWidget(self.pushButton)
+        self.verticalLayout_5.addWidget(self.storageButton)
 
         self.verticalLayout_2.addWidget(self.mainOptionsFrame)
 
@@ -476,7 +507,7 @@ class Ui_MainWindow(object):
                 None,
             )
         )
-        self.pushButton.setText(
+        self.storageButton.setText(
             QCoreApplication.translate(
                 "MainWindow", "\u0627\u0644\u0645\u062e\u0632\u0646", None
             )

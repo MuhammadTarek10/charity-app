@@ -171,29 +171,14 @@
             </item>
             <item>
              <widget class="QLineEdit" name="valueEdit">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
               <property name="minimumSize">
                <size>
                 <width>0</width>
                 <height>40</height>
                </size>
               </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>20</height>
-               </size>
-              </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
-              </property>
-              <property name="placeholderText">
-               <string/>
               </property>
              </widget>
             </item>
@@ -255,60 +240,27 @@
             </item>
             <item>
              <widget class="QLineEdit" name="quantityEdit">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
               <property name="minimumSize">
                <size>
                 <width>0</width>
                 <height>40</height>
                </size>
               </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>20</height>
-               </size>
-              </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
-              </property>
-              <property name="placeholderText">
-               <string/>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLineEdit" name="priceEdit">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
               <property name="minimumSize">
                <size>
                 <width>0</width>
                 <height>40</height>
                </size>
               </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>20</height>
-               </size>
-              </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
-              </property>
-              <property name="placeholderText">
-               <string/>
               </property>
              </widget>
             </item>
@@ -418,7 +370,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="timeNowBox">
+             <widget class="QCheckBox" name="dateNowBox">
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>

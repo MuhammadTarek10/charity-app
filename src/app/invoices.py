@@ -14,6 +14,10 @@ class InvoicesWidget(View):
 
     def setAll(self) -> None:
         self.dateCheckBox.clicked.connect(self.dateNow)
+        self.saveButton.clicked.connect(self.save)
 
     def dateNow(self) -> None:
         self.dateEdit.setDate(QDate.currentDate())
+
+    def save(self) -> None:
+        pass

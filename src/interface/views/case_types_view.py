@@ -60,9 +60,6 @@ class Ui_Form(QWidget):
         if not Form.objectName():
             Form.setObjectName("Form")
         Form.resize(687, 583)
-        Form.setStyleSheet(
-            "#listFrame{\n" "	border: 1px solid;\n" "	border-radius: 5px;\n" "}"
-        )
         self.verticalLayout = QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.widgetFrame = QFrame(Form)

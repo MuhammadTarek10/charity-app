@@ -12,4 +12,7 @@ class CasesWidget(View):
         self.setAll()
 
     def setAll(self) -> None:
+        self.saveButton.clicked.connect(self.save)
+
+    def save(self) -> None:
         pass

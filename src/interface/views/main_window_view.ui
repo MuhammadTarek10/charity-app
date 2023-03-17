@@ -52,28 +52,6 @@ QPushButton:hover{
 	background-color: #62CDFF;
 }
 
-#sideMenuFrame{
-	border: 1px solid;
-	border-radius: 5px;
-}
-#mainBodyGroupBox{
-	margin-right: 10px;
-	border-radius: 5px;
-	border: 1px solid;
-}
-
-#labelsFrame{
-	border-radius: 5px;
-}
-
-#valuesFrame{
-	border-radius: 8px;
-}
-
-#saveButton{
-	font-size: 18px;
-}
-
 QDateEdit{
 	background-color : #000000;
 	padding : 5px;
@@ -103,8 +81,8 @@ QLineEdit:focus{
 
 QDateTimeEdit{
 	background-color: #C9EEFF;
-	border-radius: 5px;
 	border: 1px solid;
+	border-radius: 5px;
 }
 
 QSpinBox{
@@ -119,6 +97,18 @@ QSpinBox:focus{
 	background-color: #97DEFF;
 }
 
+QDoubleSpinBox{
+	background-color: #C9EEFF;
+	border-radius: 5px;
+	border: 1px solid;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+QDoubleSpinBox:focus{
+	background-color: #97DEFF;
+}
+
 QListView{
 	border-radius: 5px;
 	border: 1px solid;
@@ -128,6 +118,44 @@ QListView{
 
 QListView:focus{
 	background-color: #97DEFF;
+}
+
+#sideMenuFrame{
+	border: 1px solid;
+	border-radius: 5px;
+}
+#mainBodyGroupBox{
+	margin-right: 10px;
+	border-radius: 5px;
+	border: 1px solid;
+}
+
+#labelsFrame{
+	border-radius: 5px;
+}
+
+#valuesFrame{
+	border-radius: 8px;
+}
+
+#saveButton{
+	font-size: 18px;
+}
+
+#storageFrame{
+	border: 1px solid;
+	border-radius: 14px;
+}
+
+#QTableWidget{
+	color: #000000;
+	border: 1px solid;
+	border-radius: 14px;
+	padding: 8px;
+}
+
+QHeaderView{
+	border-radius: 5px;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -191,11 +219,17 @@ QListView:focus{
           </property>
           <item>
            <widget class="QLabel" name="logoLabel">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="../assets/resources.qrc">:/icons/icons/case.png</pixmap>
+             <pixmap resource="../assets/resources.qrc">:/images/images/logo1.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -544,7 +578,7 @@ QListView:focus{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="storageButton">
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>

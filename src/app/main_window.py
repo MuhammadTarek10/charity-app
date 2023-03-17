@@ -8,6 +8,7 @@ from src.app.donations import DonationsWidget
 from src.app.case_type import CaseTypesWidget
 from src.app.invoices import InvoicesWidget
 from src.app.cases import CasesWidget
+from src.app.storage import StorageWidget
 from src.logic.config.config import Config
 
 
@@ -15,24 +16,42 @@ class MainWindow(QMainWindow, View):
     def __init__(self, parent: Optional[QMainWindow] = None) -> None:
         super().__init__(parent)
         self.widget: Optional[QWidget] = None
-        self.widgetIndex = None
+        self.widgetIndex: int = None
         self.setupUi(self)
-        loadJsonStyle(self, self, jsonFiles=[":/style/style.json"])
+        self.setAll()
+
+    def setAll(self) -> None:
+        loadJsonStyle(self, self, jsonFiles=Config.STYLE)
         self.donationsButton.clicked.connect(
             lambda event: self.addWidget(
-                DonationsWidget(), Config.DONATIONS_WIDGET_INDEX
+                DonationsWidget(),
+                Config.DONATIONS_WIDGET_INDEX,
             )
         )
         self.casesButton.clicked.connect(
-            lambda event: self.addWidget(CasesWidget(), Config.CASES_WIDGET_INDEX)
+            lambda event: self.addWidget(
+                CasesWidget(),
+                Config.CASES_WIDGET_INDEX,
+            )
         )
         self.casesTypesButton.clicked.connect(
             lambda event: self.addWidget(
-                CaseTypesWidget(), Config.CASES_TYPES_WIDGET_INDEX
+                CaseTypesWidget(),
+                Config.CASES_TYPES_WIDGET_INDEX,
             )
         )
         self.invoicesButton.clicked.connect(
-            lambda event: self.addWidget(InvoicesWidget(), Config.INVOICES_WIDGET_INDEX)
+            lambda event: self.addWidget(
+                InvoicesWidget(),
+                Config.INVOICES_WIDGET_INDEX,
+            )
+        )
+
+        self.storageButton.clicked.connect(
+            lambda event: self.addWidget(
+                StorageWidget(),
+                Config.STORAGE_WIDGET_INDEX,
+            )
         )
 
     def addWidget(self, widget: QWidget, index: int) -> None:

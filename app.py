@@ -1,5 +1,5 @@
 from typing import Optional
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget
+from PySide6.QtWidgets import QApplication, QMainWindow
 
 from src.app.main_window import MainWindow
 

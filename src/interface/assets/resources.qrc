@@ -11,6 +11,9 @@
     <file>icons/money.png</file>
     <file>icons/menu.png</file>
   </qresource>
+  <qresource prefix="images">
+    <file>images/logo1.png</file>
+  </qresource>
   <qresource prefix="style">
     <file>style.json</file>
   </qresource>

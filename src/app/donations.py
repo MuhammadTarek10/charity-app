@@ -15,7 +15,7 @@ class DonationsWidget(View):
     def setAll(self) -> None:
         self.quantityEdit.textChanged.connect(self.updateTotalPrice)
         self.priceEdit.textChanged.connect(self.updateTotalPrice)
-        self.timeNowBox.clicked.connect(self.timeNow)
+        self.dateNowBox.clicked.connect(self.dateNow)
         self.saveButton.clicked.connect(self.save)
 
     def updateTotalPrice(self) -> None:
@@ -27,7 +27,7 @@ class DonationsWidget(View):
             except:
                 pass
 
-    def timeNow(self) -> None:
+    def dateNow(self) -> None:
         self.dateEdit.setDate(QDate.currentDate())
 
     def save(self) -> None:

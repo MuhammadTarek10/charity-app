@@ -122,10 +122,7 @@ class Ui_Form(QWidget):
 
         self.valueEdit = QLineEdit(self.editFrame)
         self.valueEdit.setObjectName("valueEdit")
-        sizePolicy.setHeightForWidth(self.valueEdit.sizePolicy().hasHeightForWidth())
-        self.valueEdit.setSizePolicy(sizePolicy)
         self.valueEdit.setMinimumSize(QSize(0, 40))
-        self.valueEdit.setMaximumSize(QSize(16777215, 20))
         self.valueEdit.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.valueEdit)
@@ -154,21 +151,14 @@ class Ui_Form(QWidget):
 
         self.quantityEdit = QLineEdit(self.editFrame)
         self.quantityEdit.setObjectName("quantityEdit")
-        sizePolicy.setHeightForWidth(self.quantityEdit.sizePolicy().hasHeightForWidth())
-        self.quantityEdit.setSizePolicy(sizePolicy)
         self.quantityEdit.setMinimumSize(QSize(0, 40))
-        self.quantityEdit.setMaximumSize(QSize(16777215, 20))
         self.quantityEdit.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.quantityEdit)
 
         self.priceEdit = QLineEdit(self.editFrame)
         self.priceEdit.setObjectName("priceEdit")
-        self.priceEdit.setEnabled(True)
-        sizePolicy.setHeightForWidth(self.priceEdit.sizePolicy().hasHeightForWidth())
-        self.priceEdit.setSizePolicy(sizePolicy)
         self.priceEdit.setMinimumSize(QSize(0, 40))
-        self.priceEdit.setMaximumSize(QSize(16777215, 20))
         self.priceEdit.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.priceEdit)
@@ -217,13 +207,13 @@ class Ui_Form(QWidget):
 
         self.horizontalLayout_3.addWidget(self.saveButton)
 
-        self.timeNowBox = QCheckBox(self.dateFrame)
-        self.timeNowBox.setObjectName("timeNowBox")
-        self.timeNowBox.setCursor(QCursor(Qt.PointingHandCursor))
-        self.timeNowBox.setLayoutDirection(Qt.LeftToRight)
-        self.timeNowBox.setStyleSheet("")
+        self.dateNowBox = QCheckBox(self.dateFrame)
+        self.dateNowBox.setObjectName("dateNowBox")
+        self.dateNowBox.setCursor(QCursor(Qt.PointingHandCursor))
+        self.dateNowBox.setLayoutDirection(Qt.LeftToRight)
+        self.dateNowBox.setStyleSheet("")
 
-        self.horizontalLayout_3.addWidget(self.timeNowBox)
+        self.horizontalLayout_3.addWidget(self.dateNowBox)
 
         self.dateEdit = QDateEdit(self.dateFrame)
         self.dateEdit.setObjectName("dateEdit")
@@ -324,7 +314,6 @@ class Ui_Form(QWidget):
                 None,
             )
         )
-        self.valueEdit.setPlaceholderText("")
         self.donationTypeEdit.setPlaceholderText(
             QCoreApplication.translate(
                 "Form", "\u0642\u0645\u062d\u060c \u0642\u0645\u0627\u0634...", None
@@ -335,13 +324,11 @@ class Ui_Form(QWidget):
                 "Form", "\u0643\u0644\u064a\u0648\u060c \u0645\u062a\u0631....", None
             )
         )
-        self.quantityEdit.setPlaceholderText("")
-        self.priceEdit.setPlaceholderText("")
         self.totalPriceEdit.setText(QCoreApplication.translate("Form", "0.0", None))
         self.saveButton.setText(
             QCoreApplication.translate("Form", "\u062d\u0641\u0638", None)
         )
-        self.timeNowBox.setText(
+        self.dateNowBox.setText(
             QCoreApplication.translate("Form", "\u0627\u0644\u0622\u0646", None)
         )
         self.nameLabel.setText(
