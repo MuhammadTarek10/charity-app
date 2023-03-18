@@ -1,4 +1,4 @@
-from logic.data.database import Database
+from src.logic.data.database import Database
 
 
 class DatabaseHelper:
