@@ -19,3 +19,14 @@ class Config:
         CASES_WIDGET: CASES_TYPES_WIDGET_INDEX,
         STORAGE_WIDGET: STORAGE_WIDGET_INDEX,
     }
+
+    DATABASE_URL = "sqlite:///database.db"
+
+    USERS_TABLE = "users"
+    CASES_TABLE = "cases"
+    CASES_TYPES_TABLE = "case_type"
+    INVOICES_TABLE = "invoices"
+    INVOICES_TYPES_TABLE = "invoice_type"
+    CHILDREN_TABLE = "child"
+    COMMENT_TABLE = "comment"
+    DONATE_TABLE = "donate"
