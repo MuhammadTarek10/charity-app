@@ -17,7 +17,7 @@ class StorageWidget(View):
     def setAll(self) -> None:
         self.helper.getDataExcel()
 
-    def adjustTable(self, values: list[tuple], maxRows: int, maxCols: int) -> None:
+    def adjustTable(self, values: "list[tuple]", maxRows: int, maxCols: int) -> None:
         self.storageTableWidget.setRowCount(maxRows)
         self.storageTableWidget.setColumnCount(maxCols)
         self.insertItems(values)

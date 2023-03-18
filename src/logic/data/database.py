@@ -15,8 +15,8 @@ class Database:
     def get_metadata(self) -> sa.MetaData:
         return sa.MetaData(bind=self.engine)
 
-    def get_session(self) -> sa.orm.sessionmaker:
-        return sa.orm.sessionmaker(bind=self.engine)()
+    def get_session(self):
+        pass
 
     def create_tables(self, metadata: sa.MetaData) -> None:
         metadata.create_all(self.engine)
@@ -24,10 +24,10 @@ class Database:
     def drop_tables(self, metadata) -> None:
         metadata.drop_all(self.engine)
 
-    def get_by_id(self, table_name: str, id: int) -> sa.orm.query.Query:
+    def get_by_id(self, table_name: str, id: int):
         return self.get_session().query(table_name).filter_by(id=id).first()
 
-    def get_all(self, table_name: str) -> sa.orm.query.Query:
+    def get_all(self, table_name: str):
         return self.get_session().query(table_name).all()
 
     def update(self, table_name: str, id: int, data: dict) -> None:
