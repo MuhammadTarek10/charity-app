@@ -6,7 +6,7 @@ from typing import Optional
 from src.interface.views.donations_view import Ui_Form as View
 
 
-class DonationsWidget(View):
+class DonationsWidget(QWidget, View):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setupUi(self)

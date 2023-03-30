@@ -15,16 +15,13 @@ class Case(Base):
     phone_number = sa.Column(sa.String(255), nullable=True)
     age = sa.Column(sa.Integer, nullable=False)
     address = sa.Column(sa.String(255), nullable=False)
+    num_children = sa.Column(sa.Integer, nullable=False, default=0)
     type_id = sa.Column(sa.Integer, sa.ForeignKey("case_type.id"), nullable=False)
 
     type = relationship("CaseType", back_populates="cases")
     children = relationship("Child", back_populates="case")
     comments = relationship("Comment", back_populates="case")
     invoice = relationship("Invoice", back_populates="case")
-
-    def __init__(self, data: dict) -> None:
-        super().__init__()
-        self.fromJson(data)
 
     def toJson(self) -> dict:
         return {
@@ -53,10 +50,6 @@ class CaseType(Base):
 
     cases = relationship("Case", back_populates="type")
 
-    def __init__(self, data: dict) -> None:
-        super().__init__()
-        self.fromJson(data)
-
     def toJson(self) -> dict:
         return {"id": self.id, "name": self.name}
 
@@ -70,7 +63,7 @@ class Child(Base):
     name = sa.Column(sa.String(255), nullable=False)
     national_id = sa.Column(sa.String(255), nullable=False)
     age = sa.Column(sa.Integer, nullable=False)
-    case_id = sa.Column(sa.Integer, sa.ForeignKey("case.id"), nullable=False)
+    case_id = sa.Column(sa.Integer, sa.ForeignKey("cases.id"), nullable=False)
 
     case = relationship("Case", back_populates="children")
 
@@ -98,7 +91,7 @@ class Comment(Base):
     __tablename__ = Config.COMMENT_TABLE
     id = sa.Column(sa.Integer, primary_key=True)
     text = sa.Column(sa.String(255), nullable=False)
-    case_id = sa.Column(sa.Integer, sa.ForeignKey("case.id"), nullable=False)
+    case_id = sa.Column(sa.Integer, sa.ForeignKey("cases.id"), nullable=False)
 
     case = relationship("Case", back_populates="comments")
 
@@ -122,7 +115,7 @@ class Invoice(Base):
     quantity = sa.Column(sa.Integer, nullable=False)
     item_type = sa.Column(sa.String(255), nullable=False)
     unit = sa.Column(sa.String(255), nullable=False)
-    case_id = sa.Column(sa.Integer, sa.ForeignKey("case.id"), nullable=False)
+    case_id = sa.Column(sa.Integer, sa.ForeignKey("cases.id"), nullable=False)
     invoice_type_id = sa.Column(
         sa.Integer, sa.ForeignKey("invoice_type.id"), nullable=False
     )
@@ -186,7 +179,7 @@ class Donate(Base):
     invoice_type_id = sa.Column(
         sa.Integer, sa.ForeignKey("invoice_type.id"), nullable=False
     )
-    user_id = sa.Column(sa.Integer, sa.ForeignKey("user.id"), nullable=False)
+    user_id = sa.Column(sa.Integer, sa.ForeignKey("users.id"), nullable=False)
 
     invoice_type = relationship("InvoiceType", back_populates="donates")
     user = relationship("User", back_populates="donations")

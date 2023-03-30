@@ -191,7 +191,7 @@ class Ui_MainWindow(object):
             "#"
             "storageFrame{\n"
             "	border: 1px solid;\n"
-            "	border-radius: 5px;\n"
+            "	border-radius: 14px;\n"
             "}\n"
             "\n"
             "#QTableWidget{\n"
@@ -202,8 +202,11 @@ class Ui_MainWindow(object):
             "}\n"
             "\n"
             "QHeaderView{\n"
-            "	font-size: 25px;\n"
             "	border-radius: 5px;\n"
+            "}\n"
+            "\n"
+            "QListWidget{\n"
+            "	font-size: 12px;\n"
             "}"
         )
         self.centralwidget = QWidget(MainWindow)

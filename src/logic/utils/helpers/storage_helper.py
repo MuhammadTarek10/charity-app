@@ -6,7 +6,7 @@ from src.logic.utils.helpers.database_helper import DatabaseHelper
 
 
 class StorageHelper:
-    def __init__(self, adjustTable: FunctionType) -> None:
+    def __init__(self, adjustTable: FunctionType = None) -> None:
         self.databaseHelper: DatabaseHelper = DatabaseHelper()
         self.adjustTable: FunctionType = adjustTable
         self.data: list[tuple] = None
@@ -25,3 +25,15 @@ class StorageHelper:
 
     def getData(self) -> None:
         pass
+
+    def insertCase(self, data: dict) -> None:
+        self.databaseHelper.insertCase(data)
+
+    def insertCaseType(self, data: dict) -> None:
+        self.databaseHelper.insertCaseType(data)
+
+    def getAllCases(self) -> list:
+        return self.databaseHelper.getAllCases()
+
+    def getCaseTypes(self) -> list:
+        return self.databaseHelper.getCaseTypes()

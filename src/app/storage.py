@@ -6,7 +6,7 @@ from src.interface.views.storage_view import Ui_Form as View
 from src.logic.utils.helpers.storage_helper import StorageHelper
 
 
-class StorageWidget(View):
+class StorageWidget(QWidget, View):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.helper: StorageHelper = StorageHelper(adjustTable=self.adjustTable)

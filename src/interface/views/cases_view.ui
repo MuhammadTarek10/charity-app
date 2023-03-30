@@ -341,6 +341,9 @@
              <height>20</height>
             </size>
            </property>
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
           </widget>
          </item>
          <item>

@@ -156,6 +156,10 @@ QListView:focus{
 
 QHeaderView{
 	border-radius: 5px;
+}
+
+QListWidget{
+	font-size: 12px;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">

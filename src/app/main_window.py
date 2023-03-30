@@ -10,13 +10,19 @@ from src.app.invoices import InvoicesWidget
 from src.app.cases import CasesWidget
 from src.app.storage import StorageWidget
 from src.logic.config.config import Config
+from src.logic.utils.helpers.storage_helper import StorageHelper
 
 
 class MainWindow(QMainWindow, View):
-    def __init__(self, parent: Optional[QMainWindow] = None) -> None:
+    def __init__(
+        self,
+        storage: StorageHelper,
+        parent: Optional[QMainWindow] = None,
+    ) -> None:
         super().__init__(parent)
         self.widget: Optional[QWidget] = None
         self.widgetIndex: int = None
+        self.storage = storage
         self.setupUi(self)
         self.setAll()
 
@@ -30,13 +36,13 @@ class MainWindow(QMainWindow, View):
         )
         self.casesButton.clicked.connect(
             lambda event: self.addWidget(
-                CasesWidget(),
+                CasesWidget(storage=self.storage),
                 Config.CASES_WIDGET_INDEX,
             )
         )
         self.casesTypesButton.clicked.connect(
             lambda event: self.addWidget(
-                CaseTypesWidget(),
+                CaseTypesWidget(storage=self.storage),
                 Config.CASES_TYPES_WIDGET_INDEX,
             )
         )

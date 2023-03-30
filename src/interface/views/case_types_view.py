@@ -55,11 +55,12 @@ from PySide6.QtWidgets import (
 import src.interface.assets.resources
 
 
-class Ui_Form(QWidget):
+class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName("Form")
         Form.resize(687, 583)
+        Form.setStyleSheet("")
         self.verticalLayout = QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.widgetFrame = QFrame(Form)
@@ -78,6 +79,7 @@ class Ui_Form(QWidget):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.saveButton = QPushButton(self.editFrame)
         self.saveButton.setObjectName("saveButton")
+        self.saveButton.setCursor(QCursor(Qt.PointingHandCursor))
         icon = QIcon()
         icon.addFile(":/icons/icons/save.png", QSize(), QIcon.Normal, QIcon.Off)
         self.saveButton.setIcon(icon)

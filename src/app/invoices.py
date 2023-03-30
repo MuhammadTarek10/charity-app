@@ -6,7 +6,7 @@ from typing import Optional
 from src.interface.views.invoices_view import Ui_Form as View
 
 
-class InvoicesWidget(View):
+class InvoicesWidget(QWidget, View):
     def __init__(self, parent: Optional[QWidget] = None):
         super().__init__(parent)
         self.setupUi(self)

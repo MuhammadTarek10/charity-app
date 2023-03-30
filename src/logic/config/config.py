@@ -23,10 +23,27 @@ class Config:
     DATABASE_URL = "sqlite:///database.db"
 
     USERS_TABLE = "users"
+
     CASES_TABLE = "cases"
+    CASES_ID = "id"
+    CASES_NAME = "name"
+    CASES_NATIONAL_ID = "national_id"
+    CASES_PHONE_NUMBER = "phone_number"
+    CASES_AGE = "age"
+    CASES_ADDRESS = "address"
+    CASES_TYPE_ID = "type_id"
+    CASES_NUM_CHILDREN = "num_children"
+
     CASES_TYPES_TABLE = "case_type"
+    CASES_TYPES_ID = "id"
+    CASES_TYPES_NAME = "name"
+
     INVOICES_TABLE = "invoices"
+
     INVOICES_TYPES_TABLE = "invoice_type"
+
     CHILDREN_TABLE = "child"
+
     COMMENT_TABLE = "comment"
+
     DONATE_TABLE = "donate"

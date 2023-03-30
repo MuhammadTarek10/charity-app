@@ -57,7 +57,7 @@ from PySide6.QtWidgets import (
 import src.interface.assets.resources
 
 
-class Ui_Form(QWidget):
+class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName("Form")
@@ -208,6 +208,7 @@ class Ui_Form(QWidget):
         self.caseEdit.setSizePolicy(sizePolicy1)
         self.caseEdit.setMinimumSize(QSize(0, 0))
         self.caseEdit.setMaximumSize(QSize(16777215, 20))
+        self.caseEdit.setLayoutDirection(Qt.RightToLeft)
 
         self.horizontalLayout_4.addWidget(self.caseEdit)
 
@@ -237,7 +238,7 @@ class Ui_Form(QWidget):
         self.childrenEdit.setObjectName("childrenEdit")
         sizePolicy.setHeightForWidth(self.childrenEdit.sizePolicy().hasHeightForWidth())
         self.childrenEdit.setSizePolicy(sizePolicy)
-        self.childrenEdit.setMinimumSize(QSize(400, 0))
+        self.childrenEdit.setMinimumSize(QSize(0, 0))
         self.childrenEdit.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_8.addWidget(self.childrenEdit)
