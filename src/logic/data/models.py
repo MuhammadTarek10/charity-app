@@ -102,7 +102,7 @@ class Comment(Base):
 class Invoice(Base):
     __tablename__ = Config.INVOICES_TABLE
     id = sa.Column(sa.Integer, primary_key=True)
-    date = sa.Column(sa.Date, nullable=False)
+    date = sa.Column(sa.String(255), nullable=False)
     price = sa.Column(sa.Integer, nullable=False)
     quantity = sa.Column(sa.Integer, nullable=False)
     item_type = sa.Column(sa.String(255), nullable=False)

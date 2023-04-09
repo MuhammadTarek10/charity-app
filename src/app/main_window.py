@@ -48,7 +48,7 @@ class MainWindow(QMainWindow, View):
         )
         self.invoicesButton.clicked.connect(
             lambda event: self.addWidget(
-                InvoicesWidget(),
+                InvoicesWidget(storage=self.storage),
                 Config.INVOICES_WIDGET_INDEX,
             )
         )

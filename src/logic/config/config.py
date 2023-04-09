@@ -39,6 +39,16 @@ class Config:
     CASES_TYPES_NAME = "name"
 
     INVOICES_TABLE = "invoices"
+    INVOICES_ID = "id"
+    INVOICES_DATE = "date"
+    INVOICE_PRICE = "price"
+    INVOICE_QUANTITY = "quantity"
+    INVOICE_ITEM_TYPE = "item_type"
+    INVOICE_UNIT = "unit"
+    INVOICES_CASE_ID = "case_id"
+    INVOICE_INVOICE_TYPE_ID = "invoice_type_id"
+
+
 
     INVOICES_TYPES_TABLE = "invoice_type"
 

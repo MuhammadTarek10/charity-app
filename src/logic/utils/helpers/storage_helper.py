@@ -4,6 +4,8 @@ from types import FunctionType
 
 from src.logic.utils.helpers.database_helper import DatabaseHelper
 
+from src.logic.data.models import *
+
 
 class StorageHelper:
     def __init__(self, adjustTable: FunctionType = None) -> None:
@@ -32,12 +34,24 @@ class StorageHelper:
     def insertDonation(self, data: dict) -> None:
         self.databaseHelper.insertDonations(data)
 
+    def insertInvoice(self, data: dict) -> None:
+        self.databaseHelper.insertInvoice(data)
+
     def insertCaseType(self, data: dict) -> None:
         self.databaseHelper.insertCaseType(data)
 
     def getAllCases(self) -> list:
         return self.databaseHelper.getAllCases()
-    
+
+    def getCaseByName(self, name: str) -> Case:
+        return self.databaseHelper.getCaseByName(name)
+
+    def getAllInvoices(self) -> list:
+        return self.databaseHelper.getAllInvoices()
+
+    def getInvoiceByName(self, name: str) -> Invoice:
+        return self.databaseHelper.getInvoiceByName(name)
+
     def getAllDonations(self) -> list:
         return self.databaseHelper.getAllDonations()
 

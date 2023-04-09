@@ -51,6 +51,7 @@ class DonationsWidget(QWidget, View):
                     Config.DONATE_VALUE: self.valueEdit.text(),
                 }
             )
+            self.clearAll()
 
     @property
     def allGood(self) -> bool:
@@ -61,3 +62,13 @@ class DonationsWidget(QWidget, View):
             and self.dateEdit.date().year() > 2010
             else False
         )
+
+    def clearAll(self) -> None:
+        self.nameEdit.setText("")
+        self.quantityEdit.setText("")
+        self.priceEdit.setText("")
+        self.totalPriceEdit.setText("")
+        self.typeEdit.setText("")
+        self.unitEdit.setText("")
+        self.dateEdit.setDate(QDate.currentDate())
+        self.valueEdit.setText("")
