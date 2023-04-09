@@ -30,7 +30,7 @@ class MainWindow(QMainWindow, View):
         loadJsonStyle(self, self, jsonFiles=Config.STYLE)
         self.donationsButton.clicked.connect(
             lambda event: self.addWidget(
-                DonationsWidget(),
+                DonationsWidget(storage=self.storage),
                 Config.DONATIONS_WIDGET_INDEX,
             )
         )

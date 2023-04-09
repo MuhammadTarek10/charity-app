@@ -17,7 +17,10 @@ class Database:
     def insertCase(self, data: dict) -> None:
         self.session.add(Case(**data))
         self.session.commit()
-        self.getAllCases()
+
+    def insertDonations(self, data: dict) -> None:
+        self.session.add(Donate(**data))
+        self.session.commit()
 
     def insertCaseType(self, data: dict) -> None:
         self.session.add(CaseType(**data))
@@ -25,6 +28,9 @@ class Database:
 
     def getAllCases(self) -> list:
         return self.session.query(Case).all()
+
+    def getAllDonations(self) -> list:
+        return self.session.query(Donate).all()
 
     def getCaseTypes(self) -> list:
         return self.session.query(CaseType).all()

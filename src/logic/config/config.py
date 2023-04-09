@@ -20,9 +20,9 @@ class Config:
         STORAGE_WIDGET: STORAGE_WIDGET_INDEX,
     }
 
-    DATABASE_URL = "sqlite:///database.db"
+    DATABASE_URL = "sqlite:///data.db"
 
-    USERS_TABLE = "users"
+    DONATOR_TABLE = "donators"
 
     CASES_TABLE = "cases"
     CASES_ID = "id"
@@ -42,8 +42,18 @@ class Config:
 
     INVOICES_TYPES_TABLE = "invoice_type"
 
-    CHILDREN_TABLE = "child"
+    CHILDREN_TABLE = "children"
 
     COMMENT_TABLE = "comment"
 
     DONATE_TABLE = "donate"
+    DONATE_ID = "id"
+    DONATE_NAME = "name"
+    DONATE_DATE = "date"
+    DONATE_PRICE = "price"
+    DONATE_QUANTITY = "quantity"
+    DONATE_ITEM_TYPE = "item_type"
+    DONATE_UNIT = "unit"
+    DONATE_INVOICE_TYPE = "invoice_type_id"
+    DONATE_DONATOR_ID = "donator_id"
+    DONATE_VALUE = "value"

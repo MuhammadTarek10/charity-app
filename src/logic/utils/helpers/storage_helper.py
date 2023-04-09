@@ -29,11 +29,17 @@ class StorageHelper:
     def insertCase(self, data: dict) -> None:
         self.databaseHelper.insertCase(data)
 
+    def insertDonation(self, data: dict) -> None:
+        self.databaseHelper.insertDonations(data)
+
     def insertCaseType(self, data: dict) -> None:
         self.databaseHelper.insertCaseType(data)
 
     def getAllCases(self) -> list:
         return self.databaseHelper.getAllCases()
+    
+    def getAllDonations(self) -> list:
+        return self.databaseHelper.getAllDonations()
 
     def getCaseTypes(self) -> list:
         return self.databaseHelper.getCaseTypes()

@@ -171,18 +171,20 @@ class InvoiceType(Base):
 class Donate(Base):
     __tablename__ = Config.DONATE_TABLE
     id = sa.Column(sa.Integer, primary_key=True)
+    name = sa.Column(sa.String(255), nullable=False)
     date = sa.Column(sa.Date, nullable=False)
-    price = sa.Column(sa.Integer, nullable=False)
-    quantity = sa.Column(sa.Integer, nullable=False)
-    item_type = sa.Column(sa.String(255), nullable=False)
-    unit = sa.Column(sa.String(255), nullable=False)
+    value = sa.Column(sa.Integer, nullable=True)
+    price = sa.Column(sa.Integer, nullable=True)
+    quantity = sa.Column(sa.Integer, nullable=True)
+    item_type = sa.Column(sa.String(255), nullable=True)
+    unit = sa.Column(sa.String(255), nullable=True)
     invoice_type_id = sa.Column(
-        sa.Integer, sa.ForeignKey("invoice_type.id"), nullable=False
+        sa.Integer, sa.ForeignKey("invoice_type.id"), nullable=True
     )
-    user_id = sa.Column(sa.Integer, sa.ForeignKey("users.id"), nullable=False)
+    donator_id = sa.Column(sa.Integer, sa.ForeignKey("donators.id"), nullable=True)
 
     invoice_type = relationship("InvoiceType", back_populates="donates")
-    user = relationship("User", back_populates="donations")
+    donator = relationship("Donator", back_populates="donations")
 
     def __init__(self, data: dict) -> None:
         super().__init__()
@@ -191,27 +193,31 @@ class Donate(Base):
     def toJson(self) -> dict:
         return {
             "id": self.id,
+            "name": self.name,
+            "value": self.value,
             "date": self.date,
             "price": self.price,
             "quantity": self.quantity,
             "item_type": self.item_type,
             "unit": self.unit,
             "invoice_type_id": self.invoice_type_id,
-            "user_id": self.user_id,
+            "donator_id": self.donator_id,
         }
 
     def fromJson(self, json: dict) -> None:
+        self.name = json["name"]
         self.date = json["date"]
+        self.value = json["value"]
         self.price = json["price"]
         self.quantity = json["quantity"]
         self.item_type = json["item_type"]
         self.unit = json["unit"]
         self.invoice_type_id = json["invoice_type_id"]
-        self.user_id = json["user_id"]
+        self.donator_id = json["donator_id"]
 
 
-class User(Base):
-    __tablename__ = Config.USERS_TABLE
+class Donator(Base):
+    __tablename__ = Config.DONATOR_TABLE
     id = sa.Column(sa.Integer, primary_key=True)
     name = sa.Column(sa.String(255), nullable=False)
     national_id = sa.Column(sa.String(255), nullable=True)
@@ -219,7 +225,7 @@ class User(Base):
     phone_number = sa.Column(sa.String(255), nullable=True)
     address = sa.Column(sa.String(255), nullable=True)
 
-    donations = relationship("Donate", back_populates="user")
+    donations = relationship("Donate", back_populates="donator")
 
     def __init__(self, data: dict) -> None:
         super().__init__()

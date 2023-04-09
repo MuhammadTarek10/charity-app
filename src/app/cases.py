@@ -5,6 +5,7 @@ from typing import Optional
 from src.interface.views.cases_view import Ui_Form as View
 
 from src.logic.config.config import Config
+from src.logic.config.strings import Strings
 from src.logic.utils.helpers.storage_helper import StorageHelper
 
 
@@ -22,7 +23,7 @@ class CasesWidget(QWidget, View):
 
     def setAll(self) -> None:
         self.saveButton.clicked.connect(self.save)
-        self.caseEdit.addItem("اختر الحالة")
+        self.caseEdit.addItem(Strings.CHOOSE_CASE)
         self.caseEdit.addItems([type.name for type in self.types])
 
     def save(self) -> None:
