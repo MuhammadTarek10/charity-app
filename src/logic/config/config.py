@@ -46,7 +46,7 @@ class Config:
 
     COMMENT_TABLE = "comment"
 
-    DONATE_TABLE = "donate"
+    DONATE_TABLE = "donations"
     DONATE_ID = "id"
     DONATE_NAME = "name"
     DONATE_DATE = "date"

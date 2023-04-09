@@ -51,7 +51,6 @@ class DonationsWidget(QWidget, View):
                     Config.DONATE_VALUE: self.valueEdit.text(),
                 }
             )
-        print(self.storage.getAllDonations())
 
     @property
     def allGood(self) -> bool:
