@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget, QTableWidgetItem
 
-from typing import Optional
+from typing import List, Optional
 
 from src.interface.views.storage_view import Ui_Form as View
 from src.logic.utils.helpers.storage_helper import StorageHelper
@@ -17,7 +17,7 @@ class StorageWidget(QWidget, View):
     def setAll(self) -> None:
         self.helper.getDataExcel()
 
-    def adjustTable(self, values: list[tuple], maxRows: int, maxCols: int) -> None:
+    def adjustTable(self, values: List[tuple], maxRows: int, maxCols: int) -> None:
         self.storageTableWidget.setRowCount(maxRows)
         self.storageTableWidget.setColumnCount(maxCols)
         self.insertItems(values)
