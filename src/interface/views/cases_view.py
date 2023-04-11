@@ -42,12 +42,11 @@ from PySide6.QtGui import (
 )
 from PySide6.QtWidgets import (
     QApplication,
+    QComboBox,
     QFrame,
     QHBoxLayout,
     QLabel,
     QLineEdit,
-    QListWidget,
-    QListWidgetItem,
     QPushButton,
     QSizePolicy,
     QSpinBox,
@@ -88,12 +87,12 @@ class Ui_Form(object):
         self.nameEdit.setMinimumSize(QSize(0, 0))
         self.nameEdit.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_2.addWidget(self.nameEdit)
+        self.horizontalLayout_2.addWidget(self.nameEdit, 0, Qt.AlignVCenter)
 
         self.nameLabel = QLabel(self.nameFrame)
         self.nameLabel.setObjectName("nameLabel")
 
-        self.horizontalLayout_2.addWidget(self.nameLabel)
+        self.horizontalLayout_2.addWidget(self.nameLabel, 0, Qt.AlignVCenter)
 
         self.verticalLayout.addWidget(self.nameFrame)
 
@@ -110,12 +109,12 @@ class Ui_Form(object):
         self.iDEdit.setMinimumSize(QSize(0, 0))
         self.iDEdit.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_3.addWidget(self.iDEdit)
+        self.horizontalLayout_3.addWidget(self.iDEdit, 0, Qt.AlignVCenter)
 
         self.iDLabel = QLabel(self.iDFrame)
         self.iDLabel.setObjectName("iDLabel")
 
-        self.horizontalLayout_3.addWidget(self.iDLabel)
+        self.horizontalLayout_3.addWidget(self.iDLabel, 0, Qt.AlignVCenter)
 
         self.verticalLayout.addWidget(self.iDFrame)
 
@@ -137,12 +136,12 @@ class Ui_Form(object):
         self.ageEdit.setMinimumSize(QSize(0, 0))
         self.ageEdit.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_6.addWidget(self.ageEdit)
+        self.horizontalLayout_6.addWidget(self.ageEdit, 0, Qt.AlignVCenter)
 
         self.ageLabel = QLabel(self.ageFrame)
         self.ageLabel.setObjectName("ageLabel")
 
-        self.horizontalLayout_6.addWidget(self.ageLabel)
+        self.horizontalLayout_6.addWidget(self.ageLabel, 0, Qt.AlignVCenter)
 
         self.verticalLayout.addWidget(self.ageFrame)
 
@@ -160,12 +159,12 @@ class Ui_Form(object):
         self.addressEdit.setInputMethodHints(Qt.ImhDigitsOnly)
         self.addressEdit.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_5.addWidget(self.addressEdit)
+        self.horizontalLayout_5.addWidget(self.addressEdit, 0, Qt.AlignVCenter)
 
         self.addressLabel = QLabel(self.addressFame)
         self.addressLabel.setObjectName("addressLabel")
 
-        self.horizontalLayout_5.addWidget(self.addressLabel)
+        self.horizontalLayout_5.addWidget(self.addressLabel, 0, Qt.AlignVCenter)
 
         self.verticalLayout.addWidget(self.addressFame)
 
@@ -182,12 +181,12 @@ class Ui_Form(object):
         self.phoneEdit.setMinimumSize(QSize(0, 0))
         self.phoneEdit.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_7.addWidget(self.phoneEdit)
+        self.horizontalLayout_7.addWidget(self.phoneEdit, 0, Qt.AlignVCenter)
 
         self.phoneLabel = QLabel(self.phoneFrame)
         self.phoneLabel.setObjectName("phoneLabel")
 
-        self.horizontalLayout_7.addWidget(self.phoneLabel)
+        self.horizontalLayout_7.addWidget(self.phoneLabel, 0, Qt.AlignVCenter)
 
         self.verticalLayout.addWidget(self.phoneFrame)
 
@@ -199,23 +198,23 @@ class Ui_Form(object):
         self.horizontalLayout_4.setSpacing(5)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.caseEdit = QListWidget(self.caseFrame)
+        self.caseEdit = QComboBox(self.caseFrame)
         self.caseEdit.setObjectName("caseEdit")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.caseEdit.sizePolicy().hasHeightForWidth())
-        self.caseEdit.setSizePolicy(sizePolicy1)
-        self.caseEdit.setMinimumSize(QSize(0, 0))
-        self.caseEdit.setMaximumSize(QSize(16777215, 20))
-        self.caseEdit.setLayoutDirection(Qt.RightToLeft)
+        sizePolicy.setHeightForWidth(self.caseEdit.sizePolicy().hasHeightForWidth())
+        self.caseEdit.setSizePolicy(sizePolicy)
+        self.caseEdit.setCursor(QCursor(Qt.PointingHandCursor))
+        self.caseEdit.setMouseTracking(True)
+        self.caseEdit.setLayoutDirection(Qt.LeftToRight)
+        self.caseEdit.setStyleSheet("")
 
         self.horizontalLayout_4.addWidget(self.caseEdit)
 
         self.caseLabel = QLabel(self.caseFrame)
         self.caseLabel.setObjectName("caseLabel")
 
-        self.horizontalLayout_4.addWidget(self.caseLabel)
+        self.horizontalLayout_4.addWidget(
+            self.caseLabel, 0, Qt.AlignRight | Qt.AlignVCenter
+        )
 
         self.verticalLayout.addWidget(self.caseFrame)
 
@@ -232,7 +231,9 @@ class Ui_Form(object):
         icon.addFile(":/icons/icons/save.png", QSize(), QIcon.Normal, QIcon.Off)
         self.saveButton.setIcon(icon)
 
-        self.horizontalLayout_8.addWidget(self.saveButton, 0, Qt.AlignLeft)
+        self.horizontalLayout_8.addWidget(
+            self.saveButton, 0, Qt.AlignLeft | Qt.AlignVCenter
+        )
 
         self.childrenEdit = QSpinBox(self.childrenFrame)
         self.childrenEdit.setObjectName("childrenEdit")
@@ -241,19 +242,19 @@ class Ui_Form(object):
         self.childrenEdit.setMinimumSize(QSize(0, 0))
         self.childrenEdit.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_8.addWidget(self.childrenEdit)
+        self.horizontalLayout_8.addWidget(self.childrenEdit, 0, Qt.AlignVCenter)
 
         self.childrenLabel = QLabel(self.childrenFrame)
         self.childrenLabel.setObjectName("childrenLabel")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(
             self.childrenLabel.sizePolicy().hasHeightForWidth()
         )
-        self.childrenLabel.setSizePolicy(sizePolicy2)
+        self.childrenLabel.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout_8.addWidget(self.childrenLabel)
+        self.horizontalLayout_8.addWidget(self.childrenLabel, 0, Qt.AlignVCenter)
 
         self.verticalLayout.addWidget(self.childrenFrame)
 

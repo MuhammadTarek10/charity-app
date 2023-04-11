@@ -108,12 +108,14 @@ class Invoice(Base):
     item_type = sa.Column(sa.String(255), nullable=False)
     unit = sa.Column(sa.String(255), nullable=False)
     case_id = sa.Column(sa.Integer, sa.ForeignKey("cases.id"), nullable=False)
+    item_id = sa.Column(sa.Integer, sa.ForeignKey("items.id"), nullable=True)
     invoice_type_id = sa.Column(
         sa.Integer, sa.ForeignKey("invoice_type.id"), nullable=False
     )
 
     invoice_type = relationship("InvoiceType", back_populates="invoices")
     case = relationship("Case", back_populates="invoice")
+    item = relationship("Item", back_populates="invoice")
 
     def __str__(self) -> dict:
         return {
@@ -197,6 +199,7 @@ class Item(Base):
     unit = sa.Column(sa.String(255), nullable=False)
     price = sa.Column(sa.Float, nullable=False)
 
+    invoice = relationship("Invoice", back_populates="item")
     donation = relationship("Donations", back_populates="item")
 
     def __str__(self) -> str:

@@ -74,7 +74,7 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLineEdit" name="nameEdit">
            <property name="minimumSize">
             <size>
@@ -87,7 +87,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLabel" name="nameLabel">
            <property name="text">
             <string>الاسم</string>
@@ -121,7 +121,7 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLineEdit" name="iDEdit">
            <property name="minimumSize">
             <size>
@@ -137,7 +137,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLabel" name="iDLabel">
            <property name="text">
             <string>الرقم القومي</string>
@@ -171,7 +171,7 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QSpinBox" name="ageEdit">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -190,7 +190,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLabel" name="ageLabel">
            <property name="text">
             <string>السن</string>
@@ -224,7 +224,7 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLineEdit" name="addressEdit">
            <property name="minimumSize">
             <size>
@@ -240,7 +240,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLabel" name="addressLabel">
            <property name="text">
             <string>العنوان</string>
@@ -274,7 +274,7 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLineEdit" name="phoneEdit">
            <property name="minimumSize">
             <size>
@@ -287,7 +287,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLabel" name="phoneLabel">
            <property name="text">
             <string>رقم الهاتف</string>
@@ -322,31 +322,28 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QListWidget" name="caseEdit">
+          <widget class="QComboBox" name="caseEdit">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
+           <property name="mouseTracking">
+            <bool>true</bool>
            </property>
            <property name="layoutDirection">
-            <enum>Qt::RightToLeft</enum>
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignRight|Qt::AlignVCenter">
           <widget class="QLabel" name="caseLabel">
            <property name="text">
             <string>الحالة</string>
@@ -365,7 +362,7 @@
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_8">
-         <item alignment="Qt::AlignLeft">
+         <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
           <widget class="QPushButton" name="saveButton">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
@@ -379,7 +376,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QSpinBox" name="childrenEdit">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -398,7 +395,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignVCenter">
           <widget class="QLabel" name="childrenLabel">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">

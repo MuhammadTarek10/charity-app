@@ -54,7 +54,7 @@ class CasesWidget(QWidget, View):
                 and len(self.addressEdit.text()) > 0
                 and len(self.phoneEdit.text()) > 0
                 and len(self.childrenEdit.text()) > 0
-                and self.caseEdit.currentRow() > 0
+                and self.caseEdit.currentIndex() > 0
             )
             else False
         )
@@ -62,7 +62,7 @@ class CasesWidget(QWidget, View):
     @property
     def caseTypeId(self) -> int:
         for type in self.types:
-            if type.name == self.caseEdit.currentItem().text():
+            if type.name == self.caseEdit.currentText():
                 return type.id
 
     def clearAll(self) -> None:
@@ -72,4 +72,4 @@ class CasesWidget(QWidget, View):
         self.ageEdit.clear()
         self.addressEdit.clear()
         self.childrenEdit.clear()
-        self.caseEdit.setCurrentRow(0)
+        self.caseEdit.setCurrentIndex(0)

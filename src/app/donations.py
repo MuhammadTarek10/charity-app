@@ -43,12 +43,12 @@ class DonationsWidget(QWidget, View):
             self.storage.insertDonation(
                 {
                     Config.DONATION_NAME: self.nameEdit.text(),
-                    Config.DONATIONS_PRICE: self.totalPriceEdit.text(),
-                    Config.DONATIONS_QUANTITY: self.quantityEdit.text(),
-                    Config.DONATIONS_ITEM_TYPE: self.typeEdit.text(),
-                    Config.DONATIONS_UNIT: self.unitEdit.text(),
-                    Config.DONATION_DATE: self.dateEdit.text(),
                     Config.DONATIONS_VALUE: self.valueEdit.text(),
+                    Config.DONATION_DATE: self.dateEdit.text(),
+                    Config.ITEMS_NAME: self.typeEdit.text(),
+                    Config.ITEMS_UNIT: self.unitEdit.text(),
+                    Config.ITEMS_QUANTITY: self.quantityEdit.text(),
+                    Config.ITEMS_PRICE: self.totalPriceEdit.text(),
                 }
             )
             self.clearAll()

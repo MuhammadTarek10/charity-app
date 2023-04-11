@@ -159,7 +159,18 @@ QHeaderView{
 }
 
 QListWidget{
-	font-size: 12px;
+	font-size: 15px;
+}
+
+QComboBox{
+	font-size: 15px;
+	border: 1px solid;
+	border-radius: 14px;
+	background-color: #FAFAFA;
+}
+
+QComboBox:select{
+	background-color: #000000;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">

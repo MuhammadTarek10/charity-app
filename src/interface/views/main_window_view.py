@@ -206,8 +206,15 @@ class Ui_MainWindow(object):
             "}\n"
             "\n"
             "QListWidget{\n"
-            "	font-size: 12px;\n"
-            "}"
+            "	font-size: 15px;\n"
+            "}\n"
+            "\n"
+            "QComboBox{\n"
+            "	font-size: 15px;\n"
+            "	border: 1px solid;\n"
+            "	border-radius: 4px;\n"
+            "	background-color: #FAFAFA;\n"
+            "}\n"
         )
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
