@@ -9,16 +9,19 @@ class DatabaseHelper:
         self.database = Database(db_url)
 
     def insertCase(self, data: dict) -> None:
-        self.database.insertCase(data)
+        return self.database.insertCase(data)
 
-    def insertDonations(self, data: dict) -> None:
-        self.database.insertDonations(data)
+    def insertDonation(self, data: dict) -> None:
+        return self.database.insertDonation(data)
+
+    def insertItem(self, data: dict) -> int:
+        return self.database.insertItem(data)
 
     def insertInvoice(self, data: dict) -> None:
-        self.database.insertInvoice(data)
+        return self.database.insertInvoice(data)
 
     def insertCaseType(self, data: dict) -> None:
-        self.database.insertCaseType(data)
+        return self.database.insertCaseType(data)
 
     def getAllCases(self) -> list:
         return self.database.getAllCases()

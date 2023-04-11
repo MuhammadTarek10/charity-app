@@ -48,22 +48,27 @@ class Config:
     INVOICES_CASE_ID = "case_id"
     INVOICE_INVOICE_TYPE_ID = "invoice_type_id"
 
-
-
     INVOICES_TYPES_TABLE = "invoice_type"
 
     CHILDREN_TABLE = "children"
 
     COMMENT_TABLE = "comment"
 
-    DONATE_TABLE = "donations"
-    DONATE_ID = "id"
-    DONATE_NAME = "name"
-    DONATE_DATE = "date"
-    DONATE_PRICE = "price"
-    DONATE_QUANTITY = "quantity"
-    DONATE_ITEM_TYPE = "item_type"
-    DONATE_UNIT = "unit"
-    DONATE_INVOICE_TYPE = "invoice_type_id"
-    DONATE_DONATOR_ID = "donator_id"
-    DONATE_VALUE = "value"
+    DONATIONS_TABLE = "donations"
+    DONATIONS_ID = "id"
+    DONATION_NAME = "name"
+    DONATION_DATE = "date"
+    DONATIONS_PRICE = "price"
+    DONATIONS_QUANTITY = "quantity"
+    DONATIONS_ITEM_TYPE = "item_type"
+    DONATIONS_UNIT = "unit"
+    DONATIONS_INVOICE_TYPE = "invoice_type_id"
+    DONATIONS_VALUE = "value"
+    DONATIONS_DONATOR_ID = "donator_id"
+    DONATIONS_ITEM_ID = "item_id"
+
+    ITEMS_TABLE = "items"
+    ITEMS_NAME = "name"
+    ITEMS_PRICE = "price"
+    ITEMS_UNIT = "unit"
+    ITEMS_QUANTITY = "quantity"

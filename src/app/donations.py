@@ -42,13 +42,13 @@ class DonationsWidget(QWidget, View):
         if self.allGood:
             self.storage.insertDonation(
                 {
-                    Config.DONATE_NAME: self.nameEdit.text(),
-                    Config.DONATE_PRICE: self.totalPriceEdit.text(),
-                    Config.DONATE_QUANTITY: self.quantityEdit.text(),
-                    Config.DONATE_ITEM_TYPE: self.typeEdit.text(),
-                    Config.DONATE_UNIT: self.unitEdit.text(),
-                    Config.DONATE_DATE: self.dateEdit.text(),
-                    Config.DONATE_VALUE: self.valueEdit.text(),
+                    Config.DONATION_NAME: self.nameEdit.text(),
+                    Config.DONATIONS_PRICE: self.totalPriceEdit.text(),
+                    Config.DONATIONS_QUANTITY: self.quantityEdit.text(),
+                    Config.DONATIONS_ITEM_TYPE: self.typeEdit.text(),
+                    Config.DONATIONS_UNIT: self.unitEdit.text(),
+                    Config.DONATION_DATE: self.dateEdit.text(),
+                    Config.DONATIONS_VALUE: self.valueEdit.text(),
                 }
             )
             self.clearAll()
@@ -67,7 +67,7 @@ class DonationsWidget(QWidget, View):
         self.nameEdit.setText("")
         self.quantityEdit.setText("")
         self.priceEdit.setText("")
-        self.totalPriceEdit.setText("")
+        self.totalPriceEdit.setText("0.0")
         self.typeEdit.setText("")
         self.unitEdit.setText("")
         self.dateEdit.setDate(QDate.currentDate())

@@ -18,9 +18,23 @@ class Database:
         self.session.add(Case(**data))
         self.session.commit()
 
-    def insertDonations(self, data: dict) -> None:
+    def insertDonation(self, data: dict) -> None:
         self.session.add(Donations(**data))
         self.session.commit()
+
+    def insertItem(self, data: dict) -> int:
+        self.session.add(Item(**data))
+        self.session.commit()
+        return (
+            self.session.query(Item)
+            .filter(
+                Item.name == data["name"],
+                Item.unit == data["unit"],
+                Item.quantity == data["quantity"],
+            )
+            .first()
+            .id
+        )
 
     def insertInvoice(self, data: dict) -> None:
         self.session.add(Invoice(**data))

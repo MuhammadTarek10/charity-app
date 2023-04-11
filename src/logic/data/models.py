@@ -23,7 +23,7 @@ class Case(Base):
     comments = relationship("Comment", back_populates="case")
     invoice = relationship("Invoice", back_populates="case")
 
-    def toJson(self) -> dict:
+    def __str__(self) -> dict:
         return {
             "id": self.id,
             "name": self.name,
@@ -50,7 +50,7 @@ class CaseType(Base):
 
     cases = relationship("Case", back_populates="type")
 
-    def toJson(self) -> dict:
+    def __str__(self) -> dict:
         return {"id": self.id, "name": self.name}
 
     def fromJson(self, json: dict) -> None:
@@ -67,7 +67,7 @@ class Child(Base):
 
     case = relationship("Case", back_populates="children")
 
-    def toJson(self) -> dict:
+    def __str__(self) -> dict:
         return {
             "id": self.id,
             "name": self.name,
@@ -91,7 +91,7 @@ class Comment(Base):
 
     case = relationship("Case", back_populates="comments")
 
-    def toJson(self) -> dict:
+    def __str__(self) -> dict:
         return {"id": self.id, "text": self.text, "case_id": self.case_id}
 
     def fromJson(self, json: dict) -> None:
@@ -115,7 +115,7 @@ class Invoice(Base):
     invoice_type = relationship("InvoiceType", back_populates="invoices")
     case = relationship("Case", back_populates="invoice")
 
-    def toJson(self) -> dict:
+    def __str__(self) -> dict:
         return {
             "id": self.id,
             "date": self.date,
@@ -142,14 +142,9 @@ class InvoiceType(Base):
     id = sa.Column(sa.Integer, primary_key=True)
     name = sa.Column(sa.String(255), nullable=False)
 
-    invoices = relationship(
-        "Invoice", back_populates=Config.INVOICES_TYPES_TABLE
-    )
-    donations = relationship(
-        "Donations", back_populates=Config.INVOICES_TYPES_TABLE
-    )
+    invoices = relationship("Invoice", back_populates="invoice_type")
 
-    def toJson(self) -> dict:
+    def __str__(self) -> dict:
         return {"id": self.id, "name": self.name}
 
     def fromJson(self, json: dict) -> None:
@@ -157,24 +152,18 @@ class InvoiceType(Base):
 
 
 class Donations(Base):
-    __tablename__ = Config.DONATE_TABLE
+    __tablename__ = Config.DONATIONS_TABLE
     id = sa.Column(sa.Integer, primary_key=True)
     name = sa.Column(sa.String(255), nullable=False)
     date = sa.Column(sa.String(255), nullable=False)
-    value = sa.Column(sa.Integer, nullable=True)
-    price = sa.Column(sa.Integer, nullable=True)
-    quantity = sa.Column(sa.Integer, nullable=True)
-    item_type = sa.Column(sa.String(255), nullable=True)
-    unit = sa.Column(sa.String(255), nullable=True)
-    invoice_type_id = sa.Column(
-        sa.Integer, sa.ForeignKey("invoice_type.id"), nullable=True
-    )
+    value = sa.Column(sa.Float, nullable=True)
+    item_id = sa.Column(sa.Integer, sa.ForeignKey("items.id"), nullable=True)
     donator_id = sa.Column(sa.Integer, sa.ForeignKey("donators.id"), nullable=True)
 
-    invoice_type = relationship("InvoiceType", back_populates=Config.DONATE_TABLE)
-    donator = relationship("Donator", back_populates=Config.DONATE_TABLE)
+    donator = relationship("Donator", back_populates=Config.DONATIONS_TABLE)
+    item = relationship("Item", back_populates="donation")
 
-    def toJson(self) -> dict:
+    def __str__(self) -> dict:
         return {
             "id": self.id,
             "name": self.name,
@@ -200,6 +189,26 @@ class Donations(Base):
         self.donator_id = json["donator_id"]
 
 
+class Item(Base):
+    __tablename__ = Config.ITEMS_TABLE
+    id = sa.Column(sa.Integer, primary_key=True)
+    name = sa.Column(sa.String(255), nullable=False)
+    quantity = sa.Column(sa.Integer, nullable=False)
+    unit = sa.Column(sa.String(255), nullable=False)
+    price = sa.Column(sa.Float, nullable=False)
+
+    donation = relationship("Donations", back_populates="item")
+
+    def __str__(self) -> str:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "unit": self.unit,
+            "quantity": self.quantity,
+            "price": self.price,
+        }
+
+
 class Donator(Base):
     __tablename__ = Config.DONATOR_TABLE
     id = sa.Column(sa.Integer, primary_key=True)
@@ -211,7 +220,7 @@ class Donator(Base):
 
     donations = relationship("Donations", back_populates="donator")
 
-    def toJson(self) -> dict:
+    def __str__(self) -> dict:
         return {
             "id": self.id,
             "name": self.name,

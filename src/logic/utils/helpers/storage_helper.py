@@ -32,7 +32,23 @@ class StorageHelper:
         self.databaseHelper.insertCase(data)
 
     def insertDonation(self, data: dict) -> None:
-        self.databaseHelper.insertDonations(data)
+        donation = {
+            Config.DONATION_NAME: data[Config.DONATION_NAME],
+            Config.DONATION_DATE: data[Config.DONATION_DATE],
+            Config.DONATIONS_VALUE: data[Config.DONATIONS_VALUE],
+        }
+        try:
+            item = {
+                Config.ITEMS_NAME: data[Config.ITEMS_NAME],
+                Config.ITEMS_UNIT: data[Config.ITEMS_UNIT],
+                Config.ITEMS_QUANTITY: data[Config.ITEMS_QUANTITY],
+                Config.ITEMS_PRICE: data[Config.ITEMS_PRICE],
+            }
+            # get id of item and make it in donation
+            donation[Config.DONATIONS_ITEM_ID] = self.databaseHelper.insertItem(item)
+        except:
+            pass
+        self.databaseHelper.insertDonation(donation)
 
     def insertInvoice(self, data: dict) -> None:
         self.databaseHelper.insertInvoice(data)
