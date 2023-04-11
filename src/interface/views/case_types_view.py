@@ -46,7 +46,8 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
     QLineEdit,
-    QListView,
+    QListWidget,
+    QListWidgetItem,
     QPushButton,
     QSizePolicy,
     QVBoxLayout,
@@ -104,14 +105,23 @@ class Ui_Form(object):
         self.listFrame.setFrameShape(QFrame.StyledPanel)
         self.listFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.listFrame)
-        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setSpacing(15)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.listView = QListView(self.listFrame)
-        self.listView.setObjectName("listView")
-        self.listView.setLocale(QLocale(QLocale.Arabic, QLocale.Egypt))
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 5)
+        self.casesTypes = QListWidget(self.listFrame)
+        self.casesTypes.setObjectName("casesTypes")
+        self.casesTypes.setLocale(QLocale(QLocale.Arabic, QLocale.Egypt))
 
-        self.verticalLayout_3.addWidget(self.listView)
+        self.verticalLayout_3.addWidget(self.casesTypes)
+
+        self.deleteTypeButton = QPushButton(self.listFrame)
+        self.deleteTypeButton.setObjectName("deleteTypeButton")
+        self.deleteTypeButton.setLayoutDirection(Qt.RightToLeft)
+        icon1 = QIcon()
+        icon1.addFile(":/icons/icons/delete.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.deleteTypeButton.setIcon(icon1)
+
+        self.verticalLayout_3.addWidget(self.deleteTypeButton)
 
         self.verticalLayout_2.addWidget(self.listFrame)
 
@@ -131,6 +141,11 @@ class Ui_Form(object):
         self.caseLabel.setText(
             QCoreApplication.translate(
                 "Form", "\u0646\u0648\u0639 \u0627\u0644\u062d\u0627\u0644\u0629", None
+            )
+        )
+        self.deleteTypeButton.setText(
+            QCoreApplication.translate(
+                "Form", "\u0645\u0633\u062d \u0627\u0644\u0646\u0648\u0639", None
             )
         )
 

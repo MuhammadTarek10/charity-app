@@ -7,16 +7,19 @@ from src.interface.views.invoices_view import Ui_Form as View
 
 from src.logic.utils.helpers.storage_helper import StorageHelper
 from src.logic.config.config import Config
+from src.logic.utils.helpers.pops import Pops
 
 
 class InvoicesWidget(QWidget, View):
     def __init__(
         self,
         storage: StorageHelper,
+        pops: Pops,
         parent: Optional[QWidget] = None,
     ):
         super().__init__(parent)
         self.storage = storage
+        self.pops = pops
         self.setupUi(self)
         self.setAll()
 

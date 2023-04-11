@@ -38,5 +38,11 @@ class DatabaseHelper:
     def getInvoiceByName(self, name: str) -> Invoice:
         return self.database.getInvoiceByName(name)
 
-    def getCaseTypes(self) -> list:
-        return self.database.getCaseTypes()
+    def getCaseAllTypes(self) -> list:
+        return self.database.getCaseAllTypes()
+    
+    def getCaseTypeByName(self, name: str) -> CaseType:
+        return self.database.getCaseTypeByName(name)
+    
+    def deleteCaseType(self, name: str) -> bool:
+        return self.database.deleteCaseType(name)

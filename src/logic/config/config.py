@@ -1,5 +1,6 @@
 class Config:
     STYLE = [":/style/style.json"]
+    LOGO = ":/images/images/logo1.png"
 
     DONATIONS_WIDGET = "DONATIONS_WIDGET"
     DONATIONS_WIDGET_INDEX = 0

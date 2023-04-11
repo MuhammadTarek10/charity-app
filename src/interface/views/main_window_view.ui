@@ -158,10 +158,6 @@ QHeaderView{
 	border-radius: 5px;
 }
 
-QListWidget{
-	font-size: 15px;
-}
-
 QComboBox{
 	font-size: 15px;
 	border: 1px solid;

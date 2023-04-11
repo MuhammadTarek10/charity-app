@@ -7,17 +7,20 @@ from src.interface.views.cases_view import Ui_Form as View
 from src.logic.config.config import Config
 from src.logic.config.strings import Strings
 from src.logic.utils.helpers.storage_helper import StorageHelper
+from src.logic.utils.helpers.pops import Pops
 
 
 class CasesWidget(QWidget, View):
     def __init__(
         self,
         storage: StorageHelper,
+        pops: Pops,
         parent: Optional[QWidget] = None,
     ) -> None:
         super().__init__(parent)
         self.storage = storage
-        self.types = self.storage.getCaseTypes()
+        self.pops = pops
+        self.types = self.storage.getAllCaseTypes()
         self.setupUi(self)
         self.setAll()
 

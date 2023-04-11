@@ -1,15 +1,15 @@
 import openpyxl as op
 
 from types import FunctionType
+from src.logic.data.database import Database
 
-from src.logic.utils.helpers.database_helper import DatabaseHelper
 
 from src.logic.data.models import *
 
 
 class StorageHelper:
     def __init__(self, adjustTable: FunctionType = None) -> None:
-        self.databaseHelper: DatabaseHelper = DatabaseHelper()
+        self.database: Database = Database(db_url=Config.DATABASE_URL)
         self.adjustTable: FunctionType = adjustTable
         self.data: list[tuple] = None
         self.sheet: op.Worksheet = None
@@ -28,8 +28,52 @@ class StorageHelper:
     def getData(self) -> None:
         pass
 
+    # *Cases
+    def getAllCases(self) -> list:
+        return self.database.getAllCases()
+
+    def getCaseByName(self, name: str) -> Case:
+        return self.database.getCaseByName(name)
+
     def insertCase(self, data: dict) -> None:
-        self.databaseHelper.insertCase(data)
+        self.database.insertCase(data)
+
+    # *Cases Types
+    def getAllCaseTypes(self) -> list:
+        return self.database.getCaseAllTypes()
+
+    def insertCaseType(self, data: dict) -> bool:
+        if self.database.getCaseTypeByName(data[Config.CASES_TYPES_NAME]) is None:
+            self.database.insertCaseType(data)
+            return True
+        return False
+
+    def deleteCaseType(self, name: str) -> bool:
+        if self.database.getCaseTypeByName(name) is not None:
+            self.database.deleteCaseType(name)
+            return True
+        return False
+
+    # *Invoices
+    def getAllInvoices(self) -> list:
+        return self.database.getAllInvoices()
+
+    def getInvoiceByName(self, name: str) -> Invoice:
+        return self.database.getInvoiceByName(name)
+
+    def insertInvoice(self, data: dict) -> None:
+        self.database.insertInvoice(data)
+
+    # *Donators
+    def getAllDonators(self) -> list:
+        return self.database.getAllDonators()
+
+    def insertDonator(self, data: dict) -> None:
+        self.database.insertDonator(data)
+
+    # *Donations
+    def getAllDonations(self) -> list:
+        return self.database.getAllDonations()
 
     def insertDonation(self, data: dict) -> None:
         donation = {
@@ -45,31 +89,9 @@ class StorageHelper:
                 Config.ITEMS_PRICE: data[Config.ITEMS_PRICE],
             }
             # get id of item and make it in donation
-            donation[Config.DONATIONS_ITEM_ID] = self.databaseHelper.insertItem(item)
+            donation[Config.DONATIONS_ITEM_ID] = self.database.insertItem(item)
         except:
             pass
-        self.databaseHelper.insertDonation(donation)
+        self.database.insertDonation(donation)
 
-    def insertInvoice(self, data: dict) -> None:
-        self.databaseHelper.insertInvoice(data)
-
-    def insertCaseType(self, data: dict) -> None:
-        self.databaseHelper.insertCaseType(data)
-
-    def getAllCases(self) -> list:
-        return self.databaseHelper.getAllCases()
-
-    def getCaseByName(self, name: str) -> Case:
-        return self.databaseHelper.getCaseByName(name)
-
-    def getAllInvoices(self) -> list:
-        return self.databaseHelper.getAllInvoices()
-
-    def getInvoiceByName(self, name: str) -> Invoice:
-        return self.databaseHelper.getInvoiceByName(name)
-
-    def getAllDonations(self) -> list:
-        return self.databaseHelper.getAllDonations()
-
-    def getCaseTypes(self) -> list:
-        return self.databaseHelper.getCaseTypes()
+    # *Items

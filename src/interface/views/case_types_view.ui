@@ -91,7 +91,7 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <property name="spacing">
-          <number>0</number>
+          <number>15</number>
          </property>
          <property name="leftMargin">
           <number>0</number>
@@ -103,12 +103,26 @@
           <number>0</number>
          </property>
          <property name="bottomMargin">
-          <number>0</number>
+          <number>5</number>
          </property>
          <item>
-          <widget class="QListView" name="listView">
+          <widget class="QListWidget" name="casesTypes">
            <property name="locale">
             <locale language="Arabic" country="Egypt"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="deleteTypeButton">
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="text">
+            <string>مسح النوع</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../assets/resources.qrc">
+             <normaloff>:/icons/icons/delete.png</normaloff>:/icons/icons/delete.png</iconset>
            </property>
           </widget>
          </item>
