@@ -2,6 +2,32 @@ class Config:
     STYLE = [":/style/style.json"]
     LOGO = ":/images/images/logo1.png"
 
+    SELECTED_STYLE_BUTTON = """
+    QPushButton{\n background-color: #90EE90;\n 
+    border-radius: 5px;\n 
+    border: 1px solid;\n}\n
+    QPushButton:pressed{\n
+    	background-color: #AA77FF;\n
+    	border: 4px solid;\n
+    }\n
+    \n
+    QPushButton:hover{\n
+    	background-color: #90EE90;\n
+    }\n"""
+    UNSELECTED_STYLE_BUTTON = """
+    QPushButton{\n background-color: #97DEFF;\n 
+    border-radius: 5px;\n 
+    border: 1px solid;\n}\n
+    QPushButton:pressed{\n
+    	background-color: #AA77FF;\n
+    	border: 4px solid;\n
+    }\n
+    \n
+    QPushButton:hover{\n
+    	background-color: #62CDFF;\n
+    }\n
+    """
+
     DONATIONS_WIDGET = "DONATIONS_WIDGET"
     DONATIONS_WIDGET_INDEX = 0
     CASES_TYPES_WIDGET = "CASES_TYPES_WIDGET"

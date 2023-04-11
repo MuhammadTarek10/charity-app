@@ -15,8 +15,9 @@ class Strings:
     ADD_CASE_TYPE = "ADD_CASE_TYPE"
     CASE_TYPE_ALREADY_EXISTS = "CASE_TYPE_ALREADY_EXISTS"
     DELETE = "DELETE"
+    FILL = "FILL"
 
-    map = {
+    messages = {
         ERROR_TITLE: "خطأ",
         INFORMATION_TITLE: "معلومات",
         CONFIRM_TITLE: "تأكيد",
@@ -31,4 +32,5 @@ class Strings:
         ADD_CASE_TYPE: "أضف نوع الحالة",
         CASE_TYPE_ALREADY_EXISTS: "هذا النوع موجود بالفعل",
         DELETE: "متأكد من الحذف؟",
+        FILL: "من فضلك املئ الحقول المطلوبة",
     }

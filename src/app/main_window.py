@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QMainWindow, QWidget
+from PySide6.QtWidgets import QMainWindow, QWidget, QPushButton
 from Custom_Widgets.Widgets import loadJsonStyle
 
 from typing import Optional
@@ -27,48 +27,72 @@ class MainWindow(QMainWindow, View):
         self.storage = storage
         self.pops = pops
         self.setupUi(self)
+        self.buttons = [
+            self.donationsButton,
+            self.casesButton,
+            self.casesTypesButton,
+            self.invoicesButton,
+            self.storageButton,
+            self.settingsButton,
+            self.aboutButton,
+        ]
         self.setAll()
 
     def setAll(self) -> None:
         loadJsonStyle(self, self, jsonFiles=Config.STYLE)
         self.donationsButton.clicked.connect(
             lambda event: self.addWidget(
-                DonationsWidget(storage=self.storage, pops=self.pops),
-                Config.DONATIONS_WIDGET_INDEX,
+                button=self.donationsButton,
+                widget=DonationsWidget(storage=self.storage, pops=self.pops),
+                index=Config.DONATIONS_WIDGET_INDEX,
             )
         )
         self.casesButton.clicked.connect(
             lambda event: self.addWidget(
-                CasesWidget(storage=self.storage, pops=self.pops),
-                Config.CASES_WIDGET_INDEX,
+                button=self.casesButton,
+                widget=CasesWidget(storage=self.storage, pops=self.pops),
+                index=Config.CASES_WIDGET_INDEX,
             )
         )
         self.casesTypesButton.clicked.connect(
             lambda event: self.addWidget(
-                CaseTypesWidget(storage=self.storage, pops=self.pops),
-                Config.CASES_TYPES_WIDGET_INDEX,
+                button=self.casesTypesButton,
+                widget=CaseTypesWidget(storage=self.storage, pops=self.pops),
+                index=Config.CASES_TYPES_WIDGET_INDEX,
             )
         )
         self.invoicesButton.clicked.connect(
             lambda event: self.addWidget(
-                InvoicesWidget(storage=self.storage, pops=self.pops),
-                Config.INVOICES_WIDGET_INDEX,
+                button=self.invoicesButton,
+                widget=InvoicesWidget(storage=self.storage, pops=self.pops),
+                index=Config.INVOICES_WIDGET_INDEX,
             )
         )
 
         self.storageButton.clicked.connect(
             lambda event: self.addWidget(
-                StorageWidget(pops=self.pops),
-                Config.STORAGE_WIDGET_INDEX,
+                button=self.storageButton,
+                widget=StorageWidget(pops=self.pops),
+                index=Config.STORAGE_WIDGET_INDEX,
             )
         )
 
-    def addWidget(self, widget: QWidget, index: int) -> None:
+    def addWidget(
+        self,
+        button: QPushButton,
+        widget: QWidget,
+        index: int,
+    ) -> None:
         if self.widgetIndex != index:
             self.removeWidget()
             self.widgetIndex = index
             self.widget = widget
             self.mainLayout.addWidget(self.widget)
+            button.setStyleSheet(Config.SELECTED_STYLE_BUTTON)
+        for b in self.buttons:
+            if b == button:
+                continue
+            b.setStyleSheet(Config.UNSELECTED_STYLE_BUTTON)
 
     def removeWidget(self) -> None:
         if self.widget is not None:

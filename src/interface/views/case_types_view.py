@@ -116,6 +116,7 @@ class Ui_Form(object):
 
         self.deleteTypeButton = QPushButton(self.listFrame)
         self.deleteTypeButton.setObjectName("deleteTypeButton")
+        self.deleteTypeButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.deleteTypeButton.setLayoutDirection(Qt.RightToLeft)
         icon1 = QIcon()
         icon1.addFile(":/icons/icons/delete.png", QSize(), QIcon.Normal, QIcon.Off)

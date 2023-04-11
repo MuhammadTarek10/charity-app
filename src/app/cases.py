@@ -42,9 +42,10 @@ class CasesWidget(QWidget, View):
                     Config.CASES_TYPE_ID: self.caseTypeId,
                 }
             )
+            self.pops.info(Strings.SAVED)
             self.clearAll()
         else:
-            print("FILL")
+            self.pops.error(Strings.FILL)
 
     @property
     def allGood(self) -> bool:

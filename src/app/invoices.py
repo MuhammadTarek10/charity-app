@@ -5,6 +5,7 @@ from typing import Optional
 
 from src.interface.views.invoices_view import Ui_Form as View
 
+from src.logic.config.strings import Strings
 from src.logic.utils.helpers.storage_helper import StorageHelper
 from src.logic.config.config import Config
 from src.logic.utils.helpers.pops import Pops
@@ -43,9 +44,10 @@ class InvoicesWidget(QWidget, View):
                     Config.INVOICE_INVOICE_TYPE_ID: self.typeEdit.text(),
                 }
             )
+            self.pops.info(Strings.SAVED)
             self.clearAll()
         else:
-            print("Not all good")
+            self.pops.error(Strings.FILL)
 
     @property
     def allGood(self) -> None:

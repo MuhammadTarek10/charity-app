@@ -114,6 +114,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="deleteTypeButton">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="layoutDirection">
             <enum>Qt::RightToLeft</enum>
            </property>
