@@ -54,6 +54,52 @@
        <number>0</number>
       </property>
       <item>
+       <widget class="QFrame" name="filtersFrame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="1" column="0">
+          <widget class="QComboBox" name="tableComboBox">
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QComboBox" name="columnComboBox"/>
+         </item>
+         <item row="1" column="3">
+          <widget class="QComboBox" name="operationComboBox"/>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="operationLabel">
+           <property name="text">
+            <string>العملية</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="columnLabel">
+           <property name="text">
+            <string>العمود</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="tableLabel">
+           <property name="text">
+            <string>الجدول</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
        <widget class="QFrame" name="storageFrame">
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>

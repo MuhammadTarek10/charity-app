@@ -16,6 +16,7 @@ class Strings:
     CASE_TYPE_ALREADY_EXISTS = "CASE_TYPE_ALREADY_EXISTS"
     DELETE = "DELETE"
     FILL = "FILL"
+    NO_MATCHING_CASE = "NO_MATCHING_CASE"
 
     messages = {
         ERROR_TITLE: "خطأ",
@@ -33,4 +34,5 @@ class Strings:
         CASE_TYPE_ALREADY_EXISTS: "هذا النوع موجود بالفعل",
         DELETE: "متأكد من الحذف؟",
         FILL: "من فضلك املئ الحقول المطلوبة",
+        NO_MATCHING_CASE: "لا توجد حالة بهذا الاسم",
     }

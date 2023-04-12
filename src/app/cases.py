@@ -75,5 +75,4 @@ class CasesWidget(QWidget, View):
         self.phoneEdit.clear()
         self.ageEdit.clear()
         self.addressEdit.clear()
-        self.childrenEdit.clear()
         self.caseEdit.setCurrentIndex(0)

@@ -23,16 +23,8 @@ class Case(Base):
     comments = relationship("Comment", back_populates="case")
     invoice = relationship("Invoice", back_populates="case")
 
-    def __str__(self) -> dict:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "national_id": self.national_id,
-            "phone_number": self.phone_number,
-            "age": self.age,
-            "address": self.address,
-            "type_id": self.type_id,
-        }
+    def __str__(self) -> str:
+        return f"id: {self.id}, name: {self.name}, national id: {self.national_id}, phone number: {self.phone_number}, type: {self.type.id}"
 
     def fromJson(self, json: dict) -> None:
         self.name = json["name"]
@@ -42,6 +34,18 @@ class Case(Base):
         self.address = json["address"]
         self.type_id = json["type_id"]
 
+    def toTuple(self) -> tuple:
+        return (
+            self.id,
+            self.name,
+            self.national_id,
+            self.phone_number,
+            self.age,
+            self.address,
+            self.num_children,
+            self.type.name,
+        )
+
 
 class CaseType(Base):
     __tablename__ = Config.CASES_TYPES_TABLE
@@ -50,11 +54,14 @@ class CaseType(Base):
 
     cases = relationship("Case", back_populates="type")
 
-    def __str__(self) -> dict:
-        return {"id": self.id, "name": self.name}
+    def __str__(self) -> str:
+        return f"id: {self.id}, name: {self.name}"
 
-    def fromJson(self, json: dict) -> None:
-        self.name = json["name"]
+    def toTuple(self) -> tuple:
+        return (
+            self.id,
+            self.name,
+        )
 
 
 class Child(Base):
@@ -67,20 +74,17 @@ class Child(Base):
 
     case = relationship("Case", back_populates="children")
 
-    def __str__(self) -> dict:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "national_id": self.national_id,
-            "age": self.age,
-            "case_id": self.case_id,
-        }
+    def __str__(self) -> str:
+        return f"id: {self.id}, name: {self.name}, national_id: {self.national_id}, age: {self.age}, case_id: {self.case_id}"
 
-    def fromJson(self, json: dict) -> None:
-        self.name = json["name"]
-        self.national_id = json["national_id"]
-        self.age = json["age"]
-        self.case_id = json["case_id"]
+    def toTuple(self) -> tuple:
+        return (
+            self.id,
+            self.name,
+            self.national_id,
+            self.age,
+            self.case_id,
+        )
 
 
 class Comment(Base):
@@ -91,66 +95,40 @@ class Comment(Base):
 
     case = relationship("Case", back_populates="comments")
 
-    def __str__(self) -> dict:
-        return {"id": self.id, "text": self.text, "case_id": self.case_id}
+    def __str__(self) -> str:
+        return f"id: {self.id}, text: {self.text}, case_id: {self.case_id}"
 
-    def fromJson(self, json: dict) -> None:
-        self.text = json["text"]
-        self.case_id = json["case_id"]
+    def toTuple(self) -> tuple:
+        return (
+            self.id,
+            self.text,
+            self.case.name,
+        )
 
 
 class Invoice(Base):
     __tablename__ = Config.INVOICES_TABLE
     id = sa.Column(sa.Integer, primary_key=True)
     date = sa.Column(sa.String(255), nullable=False)
-    price = sa.Column(sa.Integer, nullable=False)
-    quantity = sa.Column(sa.Integer, nullable=False)
-    item_type = sa.Column(sa.String(255), nullable=False)
-    unit = sa.Column(sa.String(255), nullable=False)
+    item_type = sa.Column(sa.String(255), nullable=True)
+    value = sa.Column(sa.Float, nullable=False)
     case_id = sa.Column(sa.Integer, sa.ForeignKey("cases.id"), nullable=False)
     item_id = sa.Column(sa.Integer, sa.ForeignKey("items.id"), nullable=True)
-    invoice_type_id = sa.Column(
-        sa.Integer, sa.ForeignKey("invoice_type.id"), nullable=False
-    )
 
-    invoice_type = relationship("InvoiceType", back_populates="invoices")
     case = relationship("Case", back_populates="invoice")
     item = relationship("Item", back_populates="invoice")
 
-    def __str__(self) -> dict:
-        return {
-            "id": self.id,
-            "date": self.date,
-            "price": self.price,
-            "quantity": self.quantity,
-            "item_type": self.item_type,
-            "unit": self.unit,
-            "case_id": self.case_id,
-            "invoice_type_id": self.invoice_type_id,
-        }
+    def __str__(self) -> str:
+        return f"id: {self.id}, date: {self.date}, value: {self.value}, item_type: {self.item_type}, case_id: {self.case_id}"
 
-    def fromJson(self, json: dict) -> None:
-        self.date = json["date"]
-        self.price = json["price"]
-        self.quantity = json["quantity"]
-        self.item_type = json["item_type"]
-        self.unit = json["unit"]
-        self.case_id = json["case_id"]
-        self.invoice_type_id = json["invoice_type_id"]
-
-
-class InvoiceType(Base):
-    __tablename__ = Config.INVOICES_TYPES_TABLE
-    id = sa.Column(sa.Integer, primary_key=True)
-    name = sa.Column(sa.String(255), nullable=False)
-
-    invoices = relationship("Invoice", back_populates="invoice_type")
-
-    def __str__(self) -> dict:
-        return {"id": self.id, "name": self.name}
-
-    def fromJson(self, json: dict) -> None:
-        self.name = json["name"]
+    def toTuple(self) -> tuple:
+        return (
+            self.id,
+            self.date,
+            self.item.name if self.item is not None else "",
+            self.value,
+            self.case.name,
+        )
 
 
 class Donations(Base):
@@ -165,30 +143,18 @@ class Donations(Base):
     donator = relationship("Donator", back_populates=Config.DONATIONS_TABLE)
     item = relationship("Item", back_populates="donation")
 
-    def __str__(self) -> dict:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "value": self.value,
-            "date": self.date,
-            "price": self.price,
-            "quantity": self.quantity,
-            "item_type": self.item_type,
-            "unit": self.unit,
-            "invoice_type_id": self.invoice_type_id,
-            "donator_id": self.donator_id,
-        }
+    def __str__(self) -> str:
+        return f"id: {self.id}, name: {self.name}, value: {self.value}, date: {self.date}, value: {self.value}"
 
-    def fromJson(self, json: dict) -> None:
-        self.name = json["name"]
-        self.date = json["date"]
-        self.value = json["value"]
-        self.price = json["price"]
-        self.quantity = json["quantity"]
-        self.item_type = json["item_type"]
-        self.unit = json["unit"]
-        self.invoice_type_id = json["invoice_type_id"]
-        self.donator_id = json["donator_id"]
+    def toTuple(self) -> tuple:
+        return (
+            self.id,
+            self.name,
+            self.date,
+            self.value,
+            self.item.name,
+            self.donator.name,
+        )
 
 
 class Item(Base):
@@ -197,19 +163,23 @@ class Item(Base):
     name = sa.Column(sa.String(255), nullable=False)
     quantity = sa.Column(sa.Integer, nullable=False)
     unit = sa.Column(sa.String(255), nullable=False)
-    price = sa.Column(sa.Float, nullable=False)
+    price = sa.Column(sa.Float, nullable=True)
 
     invoice = relationship("Invoice", back_populates="item")
     donation = relationship("Donations", back_populates="item")
 
     def __str__(self) -> str:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "unit": self.unit,
-            "quantity": self.quantity,
-            "price": self.price,
-        }
+        return f"id: {self.id}, name: {self.name}, unit: {self.unit}, quantity: {self.quantity}, price: {self.price}"
+
+    def toTuple(self) -> tuple:
+        return (
+            self.id,
+            self.name,
+            self.quantity,
+            self.unit,
+            self.price,
+            self.donation.donator.name,
+        )
 
 
 class Donator(Base):
@@ -223,19 +193,16 @@ class Donator(Base):
 
     donations = relationship("Donations", back_populates="donator")
 
-    def __str__(self) -> dict:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "national_id": self.national_id,
-            "age": self.age,
-            "phone_number": self.phone_number,
-            "address": self.address,
-        }
+    def __str__(self) -> str:
+        return f"id: {self.id}, name: {self.name}, national_id: {self.national_id}, age: {self.age}, phone_number: {self.phone_number}, address: {self.address}"
 
-    def fromJson(self, json: dict) -> None:
-        self.name = json["name"]
-        self.national_id = json["national_id"]
-        self.age = json["age"]
-        self.phone_number = json["phone_number"]
-        self.address = json["address"]
+    def toTuple(self) -> tuple:
+        return (
+            self.id,
+            self.name,
+            self.national_id,
+            self.age,
+            self.phone_number,
+            self.address,
+            sum(self.donations.value),
+        )

@@ -37,27 +37,26 @@ class InvoicesWidget(QWidget, View):
                 {
                     Config.INVOICES_CASE_ID: self.getCaseID,
                     Config.INVOICES_DATE: self.dateEdit.text(),
-                    Config.INVOICE_PRICE: self.priceEdit.text(),
-                    Config.INVOICE_QUANTITY: self.quantityEdit.text(),
-                    Config.INVOICE_ITEM_TYPE: self.typeEdit.text(),
-                    Config.INVOICE_UNIT: self.unitEdit.text(),
-                    Config.INVOICE_INVOICE_TYPE_ID: self.typeEdit.text(),
+                    Config.INVOICES_VALUE: self.priceEdit.text(),
+                    Config.ITEMS_QUANTITY: self.quantityEdit.text(),
+                    Config.ITEMS_NAME: self.typeEdit.text(),
+                    Config.ITEMS_UNIT: self.unitEdit.text(),
                 }
             )
             self.pops.info(Strings.SAVED)
             self.clearAll()
-        else:
-            self.pops.error(Strings.FILL)
 
     @property
     def allGood(self) -> None:
-        return (
-            True
-            if self.getCaseID is not None
-            and self.dateEdit.date().year() > 2010
-            and (len(self.priceEdit.text()) > 1 or len(self.quantityEdit.text()) > 1)
-            else False
-        )
+        if self.getCaseID is None:
+            self.pops.error(Strings.NO_MATCHING_CASE)
+            return False
+        if self.dateEdit.date().year() < 2010 and (
+            len(self.priceEdit.text()) < 1 or len(self.quantityEdit.text()) < 1
+        ):
+            self.pops.error(Strings.FILL)
+            return False
+        return True
 
     @property
     def getCaseID(self) -> str:

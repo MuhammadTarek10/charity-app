@@ -38,6 +38,55 @@ class Config:
     CASES_WIDGET_INDEX = 1
     STORAGE_WIDGET = "STORAGE_WIDGET"
     STORAGE_WIDGET_INDEX = 5
+    ITEMS_WIDGET_INDEX = 6
+
+    TABLES = {
+        CASES_WIDGET_INDEX: "الحالات",
+        CASES_TYPES_WIDGET_INDEX: "انواع الحالات",
+        DONATIONS_WIDGET_INDEX: "التبرعات",
+        INVOICES_WIDGET_INDEX: "المصروفات",
+        ITEMS_WIDGET_INDEX: "الاغراض",
+    }
+
+    COLUMNS = {
+        CASES_WIDGET_INDEX: (
+            "الرقم التعريفي",
+            "الاسم",
+            "الرقم القومي",
+            "رقم الهاتف",
+            "السن",
+            "العنوان",
+            "الاطفال",
+            "النوع",
+        ),
+        CASES_TYPES_WIDGET_INDEX: (
+            "الرقم التعريفي",
+            "الاسم",
+        ),
+        INVOICES_WIDGET_INDEX: (
+            "الرقم التعريفي",
+            "التاريخ",
+            "الغرض",
+            "القيمة",
+            "الحالة",
+        ),
+        DONATIONS_WIDGET_INDEX: (
+            "الرقم التعريفي",
+            "الاسم",
+            "التاريخ",
+            "القيمة",
+            "الصنف",
+            "المتبرع",
+        ),
+        ITEMS_WIDGET_INDEX: (
+            "الرقم التعريفي",
+            "الاسم",
+            "الكمية",
+            "الوحدة",
+            "السعر",
+            "المتبرع",
+        ),
+    }
 
     widgetIndices = {
         DONATIONS_WIDGET: DONATIONS_WIDGET_INDEX,
@@ -68,12 +117,10 @@ class Config:
     INVOICES_TABLE = "invoices"
     INVOICES_ID = "id"
     INVOICES_DATE = "date"
-    INVOICE_PRICE = "price"
-    INVOICE_QUANTITY = "quantity"
-    INVOICE_ITEM_TYPE = "item_type"
-    INVOICE_UNIT = "unit"
+    INVOICES_VALUE = "value"
+    INVOICES_ITEM_ID = "item_id"
     INVOICES_CASE_ID = "case_id"
-    INVOICE_INVOICE_TYPE_ID = "invoice_type_id"
+    INVOICES_INVOICE_TYPE_ID = "invoice_type_id"
 
     INVOICES_TYPES_TABLE = "invoice_type"
 

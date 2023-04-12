@@ -42,7 +42,9 @@ from PySide6.QtGui import (
 )
 from PySide6.QtWidgets import (
     QApplication,
+    QComboBox,
     QFrame,
+    QGridLayout,
     QHBoxLayout,
     QHeaderView,
     QLabel,
@@ -75,6 +77,44 @@ class Ui_Form(object):
         self.verticalLayout.setSpacing(5)
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.filtersFrame = QFrame(self.widgetFrame)
+        self.filtersFrame.setObjectName("filtersFrame")
+        self.filtersFrame.setFrameShape(QFrame.StyledPanel)
+        self.filtersFrame.setFrameShadow(QFrame.Raised)
+        self.gridLayout = QGridLayout(self.filtersFrame)
+        self.gridLayout.setObjectName("gridLayout")
+        self.tableComboBox = QComboBox(self.filtersFrame)
+        self.tableComboBox.setObjectName("tableComboBox")
+
+        self.gridLayout.addWidget(self.tableComboBox, 1, 0, 1, 1)
+
+        self.columnComboBox = QComboBox(self.filtersFrame)
+        self.columnComboBox.setObjectName("columnComboBox")
+
+        self.gridLayout.addWidget(self.columnComboBox, 1, 2, 1, 1)
+
+        self.operationComboBox = QComboBox(self.filtersFrame)
+        self.operationComboBox.setObjectName("operationComboBox")
+
+        self.gridLayout.addWidget(self.operationComboBox, 1, 3, 1, 1)
+
+        self.operationLabel = QLabel(self.filtersFrame)
+        self.operationLabel.setObjectName("operationLabel")
+
+        self.gridLayout.addWidget(self.operationLabel, 0, 3, 1, 1)
+
+        self.columnLabel = QLabel(self.filtersFrame)
+        self.columnLabel.setObjectName("columnLabel")
+
+        self.gridLayout.addWidget(self.columnLabel, 0, 2, 1, 1)
+
+        self.tableLabel = QLabel(self.filtersFrame)
+        self.tableLabel.setObjectName("tableLabel")
+
+        self.gridLayout.addWidget(self.tableLabel, 0, 0, 1, 1)
+
+        self.verticalLayout.addWidget(self.filtersFrame)
+
         self.storageFrame = QFrame(self.widgetFrame)
         self.storageFrame.setObjectName("storageFrame")
         self.storageFrame.setFrameShape(QFrame.StyledPanel)
@@ -132,6 +172,21 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", "Form", None))
+        self.operationLabel.setText(
+            QCoreApplication.translate(
+                "Form", "\u0627\u0644\u0639\u0645\u0644\u064a\u0629", None
+            )
+        )
+        self.columnLabel.setText(
+            QCoreApplication.translate(
+                "Form", "\u0627\u0644\u0639\u0645\u0648\u062f", None
+            )
+        )
+        self.tableLabel.setText(
+            QCoreApplication.translate(
+                "Form", "\u0627\u0644\u062c\u062f\u0648\u0644", None
+            )
+        )
         self.totalPriceLabel.setText(
             QCoreApplication.translate(
                 "Form",

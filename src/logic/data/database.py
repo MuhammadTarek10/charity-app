@@ -14,6 +14,15 @@ class Database:
     def createAll(self):
         Base.metadata.create_all(self.engine)
 
+    def totalMoney(self) -> float:
+        from sqlalchemy.sql import functions
+
+        income = self.session.query(functions.sum(Donations.value)).scalar()
+        outcome = self.session.query(functions.sum(Invoice.value)).scalar()
+        income = income if income is not None else 0
+        outcome = outcome if outcome is not None else 0
+        return income - outcome
+
     # *Cases
     def getAllCases(self) -> list:
         return self.session.query(Case).all()

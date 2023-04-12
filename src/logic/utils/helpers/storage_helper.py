@@ -25,8 +25,8 @@ class StorageHelper:
         except:
             pass
 
-    def getData(self) -> None:
-        pass
+    def totalMoney(self) -> float:
+        return self.database.totalMoney()
 
     # *Cases
     def getAllCases(self) -> list:
@@ -62,7 +62,23 @@ class StorageHelper:
         return self.database.getInvoiceByName(name)
 
     def insertInvoice(self, data: dict) -> None:
-        self.database.insertInvoice(data)
+        invoice = {
+            Config.INVOICES_DATE: data[Config.INVOICES_DATE],
+            Config.INVOICES_VALUE: data[Config.INVOICES_VALUE],
+            Config.INVOICES_CASE_ID: data[Config.INVOICES_CASE_ID],
+        }
+        try:
+            item = {
+                Config.ITEMS_NAME: data[Config.ITEMS_NAME],
+                Config.ITEMS_UNIT: data[Config.ITEMS_UNIT],
+                Config.ITEMS_QUANTITY: data[Config.ITEMS_QUANTITY],
+                Config.ITEMS_PRICE: data[Config.ITEMS_PRICE],
+            }
+            # get id of item and make it in invoice
+            invoice[Config.INVOICES_ITEM_ID] = self.database.insertItem(item)
+        except:
+            pass
+        self.database.insertInvoice(invoice)
 
     # *Donators
     def getAllDonators(self) -> list:
