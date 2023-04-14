@@ -208,9 +208,13 @@ class Ui_MainWindow(object):
             "QComboBox{\n"
             "	font-size: 15px;\n"
             "	border: 1px solid;\n"
-            "	border-radius: 4px;\n"
+            "	border-radius: 14px;\n"
             "	background-color: #FAFAFA;\n"
             "}\n"
+            "\n"
+            "QComboBox:select{\n"
+            "	background-color: #000000;\n"
+            "}"
         )
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -486,7 +490,7 @@ class Ui_MainWindow(object):
         self.titleLabel.setText(
             QCoreApplication.translate(
                 "MainWindow",
-                "\u062c\u0645\u0639\u064a\u0629 \u0627\u0644\u0644\u064a \u062c\u064a \u0623\u062d\u0644\u0649",
+                "\u062c\u0645\u0639\u064a\u0629 \u0627\u0644\u0644\u064a \u062c\u0627\u064a \u0623\u062d\u0644\u0649",
                 None,
             )
         )
