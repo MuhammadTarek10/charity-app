@@ -72,11 +72,10 @@ class Config:
         ),
         DONATIONS_WIDGET_INDEX: (
             "الرقم التعريفي",
-            "الاسم",
             "التاريخ",
             "القيمة",
             "الصنف",
-            "المتبرع",
+            "اسم المتبرع",
         ),
         ITEMS_WIDGET_INDEX: (
             "الرقم التعريفي",
@@ -85,8 +84,23 @@ class Config:
             "الوحدة",
             "السعر",
             "المتبرع",
+            "في المخزن",
         ),
     }
+
+    ITEM_IN_STORAGE = "موجود"
+    ITEM_NOT_IN_STORAGE = "غير موجود"
+
+    IMPORTANT_CASE_TYPES = [
+        "يتيم",
+        "ارملة",
+        "اعاقة",
+        "مطلقة",
+        "اسرة مسجون",
+        "غارم",
+        "امراض مستعصية",
+        "مريض",
+    ]
 
     widgetIndices = {
         DONATIONS_WIDGET: DONATIONS_WIDGET_INDEX,
@@ -120,6 +134,7 @@ class Config:
     INVOICES_VALUE = "value"
     INVOICES_ITEM_ID = "item_id"
     INVOICES_CASE_ID = "case_id"
+    ITEM_IS_IN_STORAGE = "is_in_storage"
     INVOICES_INVOICE_TYPE_ID = "invoice_type_id"
 
     INVOICES_TYPES_TABLE = "invoice_type"
@@ -130,7 +145,6 @@ class Config:
 
     DONATIONS_TABLE = "donations"
     DONATIONS_ID = "id"
-    DONATION_NAME = "name"
     DONATION_DATE = "date"
     DONATIONS_PRICE = "price"
     DONATIONS_QUANTITY = "quantity"
@@ -138,7 +152,7 @@ class Config:
     DONATIONS_UNIT = "unit"
     DONATIONS_INVOICE_TYPE = "invoice_type_id"
     DONATIONS_VALUE = "value"
-    DONATIONS_DONATOR_ID = "donator_id"
+    DONATIONS_DONATOR_NAME = "donator_name"
     DONATIONS_ITEM_ID = "item_id"
 
     ITEMS_TABLE = "items"

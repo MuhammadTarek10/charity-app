@@ -1,15 +1,38 @@
 import openpyxl as op
 
 from types import FunctionType
+from src.logic.config.strings import Strings
 from src.logic.data.database import Database
 
 
+from src.logic.utils.helpers.pops import Pops
 from src.logic.data.models import *
 
 
 class StorageHelper:
-    def __init__(self, adjustTable: FunctionType = None) -> None:
+    instance = None
+
+    @staticmethod
+    def getInstance(
+        adjustTable: FunctionType = None,
+    ) -> "StorageHelper":
+        if StorageHelper.instance is None:
+            StorageHelper.instance = StorageHelper(
+                adjustTable=adjustTable,
+            )
+        return StorageHelper.instance
+
+    def setPops(self, pops: Pops) -> None:
+        self.pops = pops
+
+    def __init__(
+        self,
+        pops: Pops = None,
+        adjustTable: FunctionType = None,
+    ) -> None:
+        self.pops = pops
         self.database: Database = Database(db_url=Config.DATABASE_URL)
+        self.database.insertImportantCaseTypes()
         self.adjustTable: FunctionType = adjustTable
         self.data: list[tuple] = None
         self.sheet: op.Worksheet = None
@@ -71,18 +94,14 @@ class StorageHelper:
             item = {
                 Config.ITEMS_NAME: data[Config.ITEMS_NAME],
                 Config.ITEMS_UNIT: data[Config.ITEMS_UNIT],
-                Config.ITEMS_QUANTITY: data[Config.ITEMS_QUANTITY],
-                Config.ITEMS_PRICE: data[Config.ITEMS_PRICE],
+                Config.ITEMS_QUANTITY: int(data[Config.ITEMS_QUANTITY]) * -1,
+                Config.ITEM_IS_IN_STORAGE: False,
             }
             # get id of item and make it in invoice
             invoice[Config.INVOICES_ITEM_ID] = self.database.insertItem(item)
-        except:
-            pass
+        except Exception as e:
+            print(e)
         self.database.insertInvoice(invoice)
-
-    # *Donators
-    def getAllDonators(self) -> list:
-        return self.database.getAllDonators()
 
     def insertDonator(self, data: dict) -> None:
         self.database.insertDonator(data)
@@ -93,9 +112,10 @@ class StorageHelper:
 
     def insertDonation(self, data: dict) -> None:
         donation = {
-            Config.DONATION_NAME: data[Config.DONATION_NAME],
+            Config.DONATIONS_DONATOR_NAME: data[Config.DONATIONS_DONATOR_NAME],
             Config.DONATION_DATE: data[Config.DONATION_DATE],
             Config.DONATIONS_VALUE: data[Config.DONATIONS_VALUE],
+            Config.DONATIONS_ITEM_TYPE: data[Config.DONATIONS_ITEM_TYPE],
         }
         try:
             item = {
@@ -103,6 +123,7 @@ class StorageHelper:
                 Config.ITEMS_UNIT: data[Config.ITEMS_UNIT],
                 Config.ITEMS_QUANTITY: data[Config.ITEMS_QUANTITY],
                 Config.ITEMS_PRICE: data[Config.ITEMS_PRICE],
+                Config.ITEM_IS_IN_STORAGE: True,
             }
             # get id of item and make it in donation
             donation[Config.DONATIONS_ITEM_ID] = self.database.insertItem(item)
@@ -111,3 +132,11 @@ class StorageHelper:
         self.database.insertDonation(donation)
 
     # *Items
+    def getAllItems(self) -> list:
+        return self.database.getAllItems()
+
+    def getItemByName(self, name: str) -> Item:
+        return self.database.getItemByName(name)
+
+    def insertItem(self, data: dict) -> None:
+        self.database.insertItem(data)

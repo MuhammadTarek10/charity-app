@@ -134,26 +134,24 @@ class Invoice(Base):
 class Donations(Base):
     __tablename__ = Config.DONATIONS_TABLE
     id = sa.Column(sa.Integer, primary_key=True)
-    name = sa.Column(sa.String(255), nullable=False)
     date = sa.Column(sa.String(255), nullable=False)
     value = sa.Column(sa.Float, nullable=True)
     item_id = sa.Column(sa.Integer, sa.ForeignKey("items.id"), nullable=True)
-    donator_id = sa.Column(sa.Integer, sa.ForeignKey("donators.id"), nullable=True)
+    item_type = sa.Column(sa.String(255), nullable=True)
+    donator_name = sa.Column(sa.String(255), nullable=False)
 
-    donator = relationship("Donator", back_populates=Config.DONATIONS_TABLE)
     item = relationship("Item", back_populates="donation")
 
     def __str__(self) -> str:
-        return f"id: {self.id}, name: {self.name}, value: {self.value}, date: {self.date}, value: {self.value}"
+        return f"id: {self.id}, date: {self.date}, value: {self.value}, item_type: {self.item_type}, donator_name: {self.donator_name}"
 
     def toTuple(self) -> tuple:
         return (
             self.id,
-            self.name,
             self.date,
             self.value,
-            self.item.name,
-            self.donator.name,
+            self.item_type,
+            self.donator_name,
         )
 
 
@@ -163,7 +161,8 @@ class Item(Base):
     name = sa.Column(sa.String(255), nullable=False)
     quantity = sa.Column(sa.Integer, nullable=False)
     unit = sa.Column(sa.String(255), nullable=False)
-    price = sa.Column(sa.Float, nullable=True)
+    price = sa.Column(sa.Float, nullable=True, default=0)
+    is_in_storage = sa.Column(sa.Boolean, nullable=False, default=True)
 
     invoice = relationship("Invoice", back_populates="item")
     donation = relationship("Donations", back_populates="item")
@@ -178,31 +177,6 @@ class Item(Base):
             self.quantity,
             self.unit,
             self.price,
-            self.donation.donator.name,
-        )
-
-
-class Donator(Base):
-    __tablename__ = Config.DONATOR_TABLE
-    id = sa.Column(sa.Integer, primary_key=True)
-    name = sa.Column(sa.String(255), nullable=False)
-    national_id = sa.Column(sa.String(255), nullable=True)
-    age = sa.Column(sa.Integer, nullable=False)
-    phone_number = sa.Column(sa.String(255), nullable=True)
-    address = sa.Column(sa.String(255), nullable=True)
-
-    donations = relationship("Donations", back_populates="donator")
-
-    def __str__(self) -> str:
-        return f"id: {self.id}, name: {self.name}, national_id: {self.national_id}, age: {self.age}, phone_number: {self.phone_number}, address: {self.address}"
-
-    def toTuple(self) -> tuple:
-        return (
-            self.id,
-            self.name,
-            self.national_id,
-            self.age,
-            self.phone_number,
-            self.address,
-            sum(self.donations.value),
+            self.donation[0].donator_name,
+            "موجود" if self.is_in_storage == True else "غير موجود",
         )

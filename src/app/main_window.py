@@ -26,6 +26,7 @@ class MainWindow(QMainWindow, View):
         self.widgetIndex: int = None
         self.storage = storage
         self.pops = pops
+        self.storage.setPops(pops)
         self.setupUi(self)
         self.buttons = [
             self.donationsButton,

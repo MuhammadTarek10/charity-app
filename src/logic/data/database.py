@@ -42,8 +42,14 @@ class Database:
         return self.session.query(CaseType).filter(CaseType.name == name).first()
 
     def insertCaseType(self, data: dict) -> None:
-        self.session.add(CaseType(**data))
-        self.session.commit()
+        if self.getCaseTypeByName(data[Config.CASES_TYPES_NAME]) is None:
+            self.session.add(CaseType(**data))
+            self.session.commit()
+
+    def insertImportantCaseTypes(self) -> None:
+        cases = [{"name": i} for i in Config.IMPORTANT_CASE_TYPES]
+        for case in cases:
+            self.insertCaseType(case)
 
     def deleteCaseType(self, name: str) -> bool:
         self.session.query(CaseType).filter(CaseType.name == name).delete()
@@ -58,7 +64,6 @@ class Database:
         self.session.add(Donations(**data))
         self.session.commit()
 
-    # *Donators
     # *Invoices
     def getAllInvoices(self) -> None:
         return self.session.query(Invoice).all()
@@ -71,19 +76,21 @@ class Database:
         self.session.commit()
 
     # *Items
+    def getAllItems(self) -> list:
+        return self.session.query(Item).all()
+
+    def getItemByName(self, name: str) -> Item:
+        return self.session.query(Item).filter(Item.name == name).first()
+
     def insertItem(self, data: dict) -> int:
-        self.session.add(Item(**data))
-        self.session.commit()
-        return (
-            self.session.query(Item)
-            .filter(
-                Item.name == data["name"],
-                Item.unit == data["unit"],
-                Item.quantity == data["quantity"],
-            )
-            .first()
-            .id
-        )
+        item = self.getItemByName(data[Config.ITEMS_NAME])
+        if item is None:
+            self.session.add(Item(**data))
+            self.session.commit()
+        else:
+            item.quantity = int(item.quantity) + data[Config.ITEMS_QUANTITY]
+            self.session.commit()
+        return self.session.query(Item).filter(Item.name == data["name"]).first().id
 
     def __enter__(self) -> "Database":
         return self

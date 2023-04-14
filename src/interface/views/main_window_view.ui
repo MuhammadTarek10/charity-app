@@ -262,7 +262,7 @@ QComboBox:select{
              </font>
             </property>
             <property name="text">
-             <string>جمعية اللي جي أحلى</string>
+             <string>جمعية اللي جاي أحلى</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>

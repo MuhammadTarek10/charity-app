@@ -7,6 +7,7 @@ from src.interface.views.cases_view import Ui_Form as View
 from src.logic.config.config import Config
 from src.logic.config.strings import Strings
 from src.logic.utils.helpers.storage_helper import StorageHelper
+from src.logic.utils.helpers.input_helper import InputHelper
 from src.logic.utils.helpers.pops import Pops
 
 
@@ -45,23 +46,26 @@ class CasesWidget(QWidget, View):
             self.pops.info(Strings.SAVED)
             self.clearAll()
         else:
-            self.pops.error(Strings.FILL)
+            pass
 
     @property
     def allGood(self) -> bool:
-        return (
-            True
-            if (
-                len(self.nameEdit.text()) > 0
-                and len(self.iDEdit.text()) > 0
-                and len(self.ageEdit.text()) > 0
-                and len(self.addressEdit.text()) > 0
-                and len(self.phoneEdit.text()) > 0
-                and len(self.childrenEdit.text()) > 0
-                and self.caseEdit.currentIndex() > 0
-            )
-            else False
-        )
+        if (
+            len(self.nameEdit.text()) < 1
+            or len(self.ageEdit.text()) < 1
+            or self.caseEdit.currentIndex() == 0
+        ):
+            self.pops.error(Strings.FILL)
+            return False
+        if not InputHelper.validateNationalId(self.iDEdit.text()):
+            print(self.iDEdit.text())
+            self.pops.error(Strings.INVALID_ID)
+            return False
+        if not InputHelper.validatePhoneNumber(self.phoneEdit.text()):
+            print(self.phoneEdit.text())
+            self.pops.error(Strings.INVALID_PHONE)
+            return False
+        return True
 
     @property
     def caseTypeId(self) -> int:

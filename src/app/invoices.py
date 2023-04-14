@@ -7,6 +7,7 @@ from src.interface.views.invoices_view import Ui_Form as View
 
 from src.logic.config.strings import Strings
 from src.logic.utils.helpers.storage_helper import StorageHelper
+from src.logic.utils.helpers.input_helper import InputHelper
 from src.logic.config.config import Config
 from src.logic.utils.helpers.pops import Pops
 
@@ -38,16 +39,16 @@ class InvoicesWidget(QWidget, View):
                     Config.INVOICES_CASE_ID: self.getCaseID,
                     Config.INVOICES_DATE: self.dateEdit.text(),
                     Config.INVOICES_VALUE: self.priceEdit.text(),
-                    Config.ITEMS_QUANTITY: self.quantityEdit.text(),
                     Config.ITEMS_NAME: self.typeEdit.text(),
                     Config.ITEMS_UNIT: self.unitEdit.text(),
+                    Config.ITEMS_QUANTITY: self.quantityEdit.text(),
                 }
             )
             self.pops.info(Strings.SAVED)
             self.clearAll()
 
     @property
-    def allGood(self) -> None:
+    def allGood(self) -> bool:
         if self.getCaseID is None:
             self.pops.error(Strings.NO_MATCHING_CASE)
             return False
@@ -55,6 +56,14 @@ class InvoicesWidget(QWidget, View):
             len(self.priceEdit.text()) < 1 or len(self.quantityEdit.text()) < 1
         ):
             self.pops.error(Strings.FILL)
+            return False
+        if not InputHelper.validateMoney(self.priceEdit.text()):
+            self.pops.error(Strings.NO_MONEY)
+            return False
+        if not InputHelper.validateInvoice(
+            self.typeEdit.text(), self.quantityEdit.text()
+        ):
+            self.pops.error(Strings.NO_ITEM)
             return False
         return True
 

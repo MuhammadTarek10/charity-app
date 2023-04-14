@@ -26,7 +26,7 @@ class FilterHelper:
     def getTableData(cls, value: str) -> list:
         result: List[Base] = []
         key = cls.getTableIndex(value)
-        storage = StorageHelper()
+        storage = StorageHelper.getInstance()
         match key:
             case Config.CASES_TYPES_WIDGET_INDEX:
                 result = storage.getAllCaseTypes()
@@ -37,7 +37,7 @@ class FilterHelper:
             case Config.INVOICES_WIDGET_INDEX:
                 result = storage.getAllInvoices()
             case Config.ITEMS_WIDGET_INDEX:
-                pass
+                result = storage.getAllItems()
             case _:
                 print("ERROR")
         return cls.extractResult(key, result)

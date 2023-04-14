@@ -46,13 +46,14 @@ class DonationsWidget(QWidget, View):
         if self.allGood:
             self.storage.insertDonation(
                 {
-                    Config.DONATION_NAME: self.nameEdit.text(),
-                    Config.DONATIONS_VALUE: self.valueEdit.text(),
+                    Config.DONATIONS_DONATOR_NAME: self.nameEdit.text(),
+                    Config.DONATIONS_VALUE: self.getValue,
                     Config.DONATION_DATE: self.dateEdit.text(),
-                    Config.ITEMS_NAME: self.typeEdit.text(),
+                    Config.DONATIONS_ITEM_TYPE: self.typeEdit.text(),
+                    Config.ITEMS_NAME: self.donationTypeEdit.text(),
                     Config.ITEMS_UNIT: self.unitEdit.text(),
                     Config.ITEMS_QUANTITY: self.quantityEdit.text(),
-                    Config.ITEMS_PRICE: self.totalPriceEdit.text(),
+                    Config.ITEMS_PRICE: self.priceEdit.text(),
                 }
             )
             self.pops.info(Strings.SAVED)
@@ -69,6 +70,18 @@ class DonationsWidget(QWidget, View):
             and self.dateEdit.date().year() > 2010
             else False
         )
+
+    @property
+    def getValue(self) -> float:
+        try:
+            if len(self.valueEdit.text()) > 0:
+                return self.valueEdit.text()
+            elif len(self.totalPriceEdit.text()) > 0:
+                return self.totalPriceEdit.text()
+            else:
+                raise 0.0
+        except:
+            return 0.0
 
     def clearAll(self) -> None:
         self.nameEdit.setText("")

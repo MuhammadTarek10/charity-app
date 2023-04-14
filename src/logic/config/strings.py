@@ -17,6 +17,10 @@ class Strings:
     DELETE = "DELETE"
     FILL = "FILL"
     NO_MATCHING_CASE = "NO_MATCHING_CASE"
+    INVALID_ID = "INVALID_ID"
+    INVALID_PHONE = "INVALID_PHONE"
+    NO_MONEY = "NO_MONEY"
+    NO_ITEM = "NO_ITEM"
 
     messages = {
         ERROR_TITLE: "خطأ",
@@ -35,4 +39,8 @@ class Strings:
         DELETE: "متأكد من الحذف؟",
         FILL: "من فضلك املئ الحقول المطلوبة",
         NO_MATCHING_CASE: "لا توجد حالة بهذا الاسم",
+        INVALID_ID: "الرقم القومي خاطئ، يجب ان يتكون من ١٤ رقم ويبدأ بـ٢ او ٣",
+        INVALID_PHONE: "رقم الهاتف خاطئ",
+        NO_MONEY: "لا يوجد مال كافي في المخزن",
+        NO_ITEM: "هذا الصنف لا يوجد في المخزن بهذه الكمية"
     }
